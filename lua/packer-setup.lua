@@ -1,12 +1,12 @@
 local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+	local fn = vim.fn
+	local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+		vim.cmd [[packadd packer.nvim]]
+		return true
+	end
+	return false
 end
 
 local packer_bootstrap = ensure_packer()
@@ -37,12 +37,12 @@ return require('packer').startup(function(use)
 		},
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
-    -- 快速切换窗口
-    use 'christoomey/vim-tmux-navigator'
-    -- 语法高亮
-    use 'nvim-treesitter/nvim-treesitter'
-    -- 彩虹括号
-    use 'p00f/nvim-ts-rainbow'
+		-- 快速切换窗口
+		use 'christoomey/vim-tmux-navigator'
+		-- 语法高亮
+		use 'nvim-treesitter/nvim-treesitter'
+		-- 彩虹括号
+		use 'p00f/nvim-ts-rainbow'
 
 
 	--- LSP ---
@@ -54,15 +54,15 @@ return require('packer').startup(function(use)
 	-- LSP 插件
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-nvim-lsp'
-    use 'L3MON4D3/LuaSnip'
+		use 'L3MON4D3/LuaSnip'
 	use 'saadparwaiz1/cmp_luasnip'
-    use 'rafamadriz/friendly-snippets'
-    use 'hrsh7th/cmp-path'
+		use 'rafamadriz/friendly-snippets'
+		use 'hrsh7th/cmp-path'
 
-    -- gcc gc 注释
-    use 'numToStr/Comment.nvim'
-    -- 自动补全括号
-    use 'windwp/nvim-autopairs'
+		-- gcc gc 注释
+		use 'numToStr/Comment.nvim'
+		-- 自动补全括号
+		use 'windwp/nvim-autopairs'
 	-- 缓冲区
 	use 'akinsho/bufferline.nvim'
 	-- 左侧 git 提示
@@ -73,7 +73,7 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-  if packer_bootstrap then
-    require('packer').sync()
-  end
+	if packer_bootstrap then
+		require('packer').sync()
+	end
 end)
