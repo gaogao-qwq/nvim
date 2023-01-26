@@ -16,4 +16,5 @@ require('plugin-config.nvim-autopairs')
 require('plugin-config.bufferline')
 require('plugin-config.gitsigns')
 require('plugin-config.telescope')
+require('plugin-config.vim-terminal-help')
 

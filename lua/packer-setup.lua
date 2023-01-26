@@ -37,12 +37,12 @@ return require('packer').startup(function(use)
 		},
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
-		-- 快速切换窗口
-		use 'christoomey/vim-tmux-navigator'
-		-- 语法高亮
-		use 'nvim-treesitter/nvim-treesitter'
-		-- 彩虹括号
-		use 'p00f/nvim-ts-rainbow'
+	-- 快速切换窗口
+	use 'christoomey/vim-tmux-navigator'
+	-- 语法高亮
+	use 'nvim-treesitter/nvim-treesitter'
+	-- 彩虹括号
+	use 'p00f/nvim-ts-rainbow'
 
 
 	--- LSP ---
@@ -54,15 +54,15 @@ return require('packer').startup(function(use)
 	-- LSP 插件
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-nvim-lsp'
-		use 'L3MON4D3/LuaSnip'
+	use 'L3MON4D3/LuaSnip'
 	use 'saadparwaiz1/cmp_luasnip'
-		use 'rafamadriz/friendly-snippets'
-		use 'hrsh7th/cmp-path'
+	use 'rafamadriz/friendly-snippets'
+	use 'hrsh7th/cmp-path'
 
-		-- gcc gc 注释
-		use 'numToStr/Comment.nvim'
-		-- 自动补全括号
-		use 'windwp/nvim-autopairs'
+	-- gcc gc 注释
+	use 'numToStr/Comment.nvim'
+	-- 自动补全括号
+	use 'windwp/nvim-autopairs'
 	-- 缓冲区
 	use 'akinsho/bufferline.nvim'
 	-- 左侧 git 提示
@@ -72,6 +72,8 @@ return require('packer').startup(function(use)
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+	-- 内嵌终端优化
+	use 'skywind3000/vim-terminal-help'
 
 	if packer_bootstrap then
 		require('packer').sync()

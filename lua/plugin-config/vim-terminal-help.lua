@@ -1,0 +1,1 @@
+vim.g.terminal_shell = "pwsh"
