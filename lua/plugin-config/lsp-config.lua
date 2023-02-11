@@ -11,6 +11,7 @@ require("mason").setup({
 require("mason-lspconfig").setup({
 	ensure_installed = {
 	"sumneko_lua",
+	"clangd",
 	"tsserver",
 	"tailwindcss",
 	"bashls",
@@ -33,3 +34,14 @@ require("lspconfig").sumneko_lua.setup {
 	capabilities = capabilities,
 }
 
+require("lspconfig").clangd.setup {
+	capabilities = capabilities,
+}
+
+require("lspconfig").pyright.setup {
+	capabilities = capabilities,
+}
+
+require("lspconfig").rust_analyzer.setup {
+	capabilities = capabilities,
+}

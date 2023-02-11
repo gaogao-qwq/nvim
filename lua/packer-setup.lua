@@ -59,6 +59,16 @@ return require('packer').startup(function(use)
 	use 'rafamadriz/friendly-snippets'
 	use 'hrsh7th/cmp-path'
 
+	--- 调试器 ---
+	-- dap
+	use 'ravenxrz/nvim-dap'
+	-- 变量值显示
+	use 'theHamsta/nvim-dap-virtual-text'
+	-- dap ui 显示
+	use 'rcarriga/nvim-dap-ui'
+	-- telescope 集成
+	use 'nvim-telescope/telescope-dap.nvim'
+
 	-- gcc gc 注释
 	use 'numToStr/Comment.nvim'
 	-- 自动补全括号
@@ -73,7 +83,8 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	-- 内嵌终端优化
-	use 'skywind3000/vim-terminal-help'
+	-- use 'skywind3000/vim-terminal-help' 不好用
+	use 'voldikss/vim-floaterm'
 
 	if packer_bootstrap then
 		require('packer').sync()
