@@ -1,2 +1,2 @@
 vim.g.floaterm_shell = "pwsh"
-vim.g.floaterm_wintype = "split"
+vim.g.floaterm_wintype = "float"
