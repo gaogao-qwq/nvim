@@ -43,7 +43,10 @@ return require('packer').startup(function(use)
 	use 'nvim-treesitter/nvim-treesitter'
 	-- 彩虹括号
 	use 'p00f/nvim-ts-rainbow'
-
+	-- 缩进提示
+	use 'lukas-reineke/indent-blankline.nvim'
+	-- Nerd Fonts 图标补丁
+	use 'mortepau/codicons.nvim'
 
 	--- LSP ---
 	-- lspconfig
@@ -58,10 +61,13 @@ return require('packer').startup(function(use)
 	use 'saadparwaiz1/cmp_luasnip'
 	use 'rafamadriz/friendly-snippets'
 	use 'hrsh7th/cmp-path'
+	use "folke/neodev.nvim"
 
 	--- 调试器 ---
 	-- dap
-	use 'ravenxrz/nvim-dap'
+	use 'mfussenegger/nvim-dap'
+	-- mason 支持
+	use 'jay-babu/mason-nvim-dap.nvim'
 	-- 变量值显示
 	use 'theHamsta/nvim-dap-virtual-text'
 	-- dap ui 显示

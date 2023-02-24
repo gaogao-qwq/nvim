@@ -21,6 +21,7 @@ require("mason-lspconfig").setup({
 	"pyright",
 	"rust_analyzer",
 	"gopls",
+	"ltex",
 	},
 })
 
@@ -39,5 +40,25 @@ require("lspconfig").pyright.setup {
 }
 
 require("lspconfig").rust_analyzer.setup {
+	capabilities = capabilities,
+}
+
+require("lspconfig").gopls.setup {
+	capabilities = capabilities,
+}
+
+require("lspconfig").html.setup {
+	capabilities = capabilities,
+}
+
+require("lspconfig").cssls.setup {
+	capabilities = capabilities,
+}
+
+require("lspconfig").tsserver.setup {
+	capabilities = capabilities,
+}
+
+require("lspconfig").ltex.setup {
 	capabilities = capabilities,
 }

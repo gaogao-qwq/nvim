@@ -34,10 +34,10 @@ opt.smartcase = true
 opt.termguicolors = true
 opt.signcolumn = "yes"
 vim.cmd[[colorscheme tokyonight-storm]]
-vim.cmd[[highlight Normal guibg=NONE ctermbg=None]]
-vim.cmd[[highlight NormalNC guibg=NONE ctermbg=None]]
-vim.cmd[[highlight NormalSB guibg=NONE ctermbg=None]]
-vim.cmd[[highlight NvimTreeNormal guibg=NONE ctermbg=None]]
-vim.cmd[[highlight NvimTreeNormalNC guibg=NONE ctermbg=None]]
-vim.cmd[[highlight TelescopeNormal guibg=NONE ctermbg=None]]
-vim.cmd[[highlight SignColumn guibg=NONE ctermbg=None]]
+-- vim.cmd[[highlight Normal guibg=NONE ctermbg=None]]
+-- vim.cmd[[highlight NormalNC guibg=NONE ctermbg=None]]
+-- vim.cmd[[highlight NormalSB guibg=NONE ctermbg=None]]
+-- vim.cmd[[highlight NvimTreeNormal guibg=NONE ctermbg=None]]
+-- vim.cmd[[highlight NvimTreeNormalNC guibg=NONE ctermbg=None]]
+-- vim.cmd[[highlight TelescopeNormal guibg=NONE ctermbg=None]]
+-- vim.cmd[[highlight SignColumn guibg=NONE ctermbg=None]]
