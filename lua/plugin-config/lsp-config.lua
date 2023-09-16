@@ -62,3 +62,7 @@ require("lspconfig").tsserver.setup {
 require("lspconfig").ltex.setup {
 	capabilities = capabilities,
 }
+
+require("lspconfig").neocmake.setup {
+	capabilities = capabilities,
+}

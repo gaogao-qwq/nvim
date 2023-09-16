@@ -47,6 +47,13 @@ return require('packer').startup(function(use)
 	use 'lukas-reineke/indent-blankline.nvim'
 	-- Nerd Fonts 图标补丁
 	use 'mortepau/codicons.nvim'
+	-- 自动保存
+	use 'Pocco81/auto-save.nvim'
+	-- 启动页面
+	use {
+		'startup-nvim/startup.nvim',
+		requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+	}
 
 	--- LSP ---
 	-- lspconfig
@@ -91,6 +98,11 @@ return require('packer').startup(function(use)
 	-- 内嵌终端优化
 	-- use 'skywind3000/vim-terminal-help' 不好用
 	use 'voldikss/vim-floaterm'
+
+	-- vim-go
+	use 'fatih/vim-go'
+
+	use "jbyuki/venn.nvim"
 
 	if packer_bootstrap then
 		require('packer').sync()
