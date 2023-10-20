@@ -42,3 +42,10 @@ vim.cmd[[colorscheme tokyonight-storm]]
 -- vim.cmd[[highlight NvimTreeNormalNC guibg=NONE ctermbg=None]]
 -- vim.cmd[[highlight TelescopeNormal guibg=NONE ctermbg=None]]
 -- vim.cmd[[highlight SignColumn guibg=NONE ctermbg=None]]
+
+-- 诊断标志
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
