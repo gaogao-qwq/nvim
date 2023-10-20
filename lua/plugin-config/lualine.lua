@@ -41,10 +41,10 @@ local config = {
     section_separators = '',
     theme = {
       -- We are going to use lualine_c an lualine_x as left and
-      -- right section. Both are highlighted by c theme .  So we
+      -- right section. Both are highlighted by nightfly theme .  So we
       -- are just setting default looks o statusline
       normal = { nightfly = { fg = colors.fg, bg = colors.bg } },
-      inactive = { c = { fg = colors.fg, bg = colors.bg } },
+      inactive = { nightfly = { fg = colors.fg, bg = colors.bg } },
     },
   },
   sections = {
@@ -89,7 +89,7 @@ ins_left {
 ins_left {
   -- mode component
   function()
-    return ''
+    return '󰣇'
   end,
   color = function()
     -- auto change color according to neovims mode
