@@ -104,6 +104,7 @@ return require('packer').startup(function(use)
 	-- vim-go
 	use 'fatih/vim-go'
 
+	-- 画图器
 	use "jbyuki/venn.nvim"
 
 	if packer_bootstrap then
