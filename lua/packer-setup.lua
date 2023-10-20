@@ -45,6 +45,8 @@ return require('packer').startup(function(use)
 	use 'p00f/nvim-ts-rainbow'
 	-- 缩进提示
 	use 'lukas-reineke/indent-blankline.nvim'
+	-- 彩虹下划线
+	use 'HiPhish/rainbow-delimiters.nvim'
 	-- Nerd Fonts 图标补丁
 	use 'mortepau/codicons.nvim'
 	-- 自动保存
@@ -92,7 +94,7 @@ return require('packer').startup(function(use)
 	use 'lewis6991/gitsigns.nvim'
 	-- 文件检索
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.1',
+		'nvim-telescope/telescope.nvim',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	-- 内嵌终端优化
