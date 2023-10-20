@@ -4,6 +4,10 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 
+-- 代码块折叠方式
+opt.foldmethod = "syntax"
+opt.foldenable = false
+
 -- 缩进
 opt.tabstop = 4
 opt.shiftwidth = 4
