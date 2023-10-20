@@ -41,6 +41,14 @@ keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 keymap.set("n", "<M-e>", ":bnext<CR>")
 keymap.set("n", "<M-q>", ":bprevious<CR>")
 
+-- telescope
+local builtin = require('telescope.builtin')
+keymap.set('n', '<leader>ff', builtin.find_files, {})	-- 主键 + ff 查找文件
+keymap.set('n', '<leader>fo', builtin.oldfiles, {})		-- 主键 + fo 查找旧文件
+-- keymap.set('n', '<leader>fg', builtin.live_grep, {})
+keymap.set('n', '<leader>fb', builtin.buffers, {})		-- 主键 + fb 查找标签
+keymap.set('n', '<leader>fh', builtin.help_tags, {})	-- 主键 + fh 查找帮助
+
 -- debug
 keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint(); require'plugin-config.dap.dap-util'.store_breakpoints(true)<cr>")
 keymap.set("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>")
