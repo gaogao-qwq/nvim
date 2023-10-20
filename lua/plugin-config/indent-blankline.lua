@@ -29,7 +29,6 @@ end)
 require("ibl").setup {
 	indent = {
 		highlight = indent_highlight,
-		char = "┆",
 	},
     whitespace = {
         highlight = whitespace_highlight,
