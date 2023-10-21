@@ -11,9 +11,4 @@ require('nvim-tree').setup({
 			enable = true
 		}
 	},
-	actions = {
-		open_file = {
-			quit_on_open = true
-		}
-	}
 })
