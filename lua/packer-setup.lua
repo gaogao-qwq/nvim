@@ -86,6 +86,7 @@ return require('packer').startup(function(use)
 	-- telescope 集成
 	use 'nvim-telescope/telescope-dap.nvim'
 
+	--- 实用工具 ---
 	-- gcc gc 注释
 	use 'numToStr/Comment.nvim'
 	-- 自动补全括号
@@ -102,12 +103,12 @@ return require('packer').startup(function(use)
 	-- 内嵌终端优化
 	-- use 'skywind3000/vim-terminal-help' 不好用
 	use 'voldikss/vim-floaterm'
-
 	-- vim-go
 	use 'fatih/vim-go'
-
 	-- 画图器
-	use "jbyuki/venn.nvim"
+	use 'jbyuki/venn.nvim'
+	-- 代码块折叠美化
+	use 'anuvyklack/pretty-fold.nvim'
 
 	if packer_bootstrap then
 		require('packer').sync()

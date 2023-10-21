@@ -5,8 +5,9 @@ opt.relativenumber = true
 opt.number = true
 
 -- 代码块折叠方式
-opt.foldmethod = "syntax"
-opt.foldenable = false
+opt.foldmethod = "manual"
+opt.foldnestmax = 20
+opt.foldenable = true
 
 -- 缩进
 opt.tabstop = 4
