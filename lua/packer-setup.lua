@@ -70,7 +70,9 @@ return require('packer').startup(function(use)
 	use 'saadparwaiz1/cmp_luasnip'
 	use 'rafamadriz/friendly-snippets'
 	use 'hrsh7th/cmp-path'
-	use "folke/neodev.nvim"
+	use 'folke/neodev.nvim'
+	-- 显示引用，定义，实现
+	use 'Wansmer/symbol-usage.nvim'
 
 	--- 调试器 ---
 	-- dap
