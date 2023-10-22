@@ -1,3 +1,5 @@
+local a = 0
+
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
@@ -22,7 +24,7 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- 主键 + sh 垂直新增窗口
 -- ALT + = 打开或关闭内嵌终端
 keymap.set("n", "<M-=>", ":FloatermToggle<CR>")
 keymap.set("t", "<M-=>", "<c-\\><c-N>:FloatermToggle<CR>")
-keymap.set("t", "<M-=>", "<c-\\><c-N>:FloatermKill<CR>")
+keymap.set("t", "<M-->", "<c-\\><c-N>:FloatermKill<CR>")
 
 -- 移动
 keymap.set("n", "<M-j>", ":+10<CR>")
@@ -48,6 +50,14 @@ keymap.set('n', '<leader>fo', builtin.oldfiles, {})		-- 主键 + fo 查找旧文
 -- keymap.set('n', '<leader>fg', builtin.live_grep, {})
 keymap.set('n', '<leader>fb', builtin.buffers, {})		-- 主键 + fb 查找标签
 keymap.set('n', '<leader>fh', builtin.help_tags, {})	-- 主键 + fh 查找帮助
+
+keymap.set("n", "<leader>tt", function() require("trouble").toggle() end)							-- 主键 + tt 显示所有问题
+keymap.set("n", "<leader>tw", function() require("trouble").toggle("workspace_diagnostics") end)	-- 主键 + tw 显示工作区内问题
+keymap.set("n", "<leader>td", function() require("trouble").toggle("document_diagnostics") end)		-- 主键 + td 显示当前文档内问题
+keymap.set("n", "<leader>tf", function() require("trouble").toggle("quickfix") end)					-- 主键 + tf 快速修复
+keymap.set("n", "<leader>tl", function() require("trouble").toggle("loclist") end)					-- 主键 + tl 窗口级别快速修复
+keymap.set("n", "tr", function() require("trouble").toggle("lsp_references") end)					-- tr 查看光标悬停处引用
+keymap.set("n", "td", function() require("trouble").toggle("lsp_definitions") end)					-- td 查看光标悬停处定义
 
 -- debug
 keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint(); require'plugin-config.dap.dap-util'.store_breakpoints(true)<cr>")

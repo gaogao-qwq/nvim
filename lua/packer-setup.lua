@@ -49,6 +49,8 @@ return require('packer').startup(function(use)
 	use 'HiPhish/rainbow-delimiters.nvim'
 	-- Nerd Fonts 图标补丁
 	use 'mortepau/codicons.nvim'
+	-- devicons
+	use 'nvim-tree/nvim-web-devicons'
 	-- 自动保存
 	use 'Pocco81/auto-save.nvim'
 	-- 启动页面
@@ -73,6 +75,7 @@ return require('packer').startup(function(use)
 	use 'folke/neodev.nvim'
 	-- 显示引用，定义，实现
 	use 'Wansmer/symbol-usage.nvim'
+	use 'folke/trouble.nvim'
 
 	--- 调试器 ---
 	-- dap
@@ -83,7 +86,7 @@ return require('packer').startup(function(use)
 	use 'theHamsta/nvim-dap-virtual-text'
 	-- dap ui 显示
 	use 'rcarriga/nvim-dap-ui'
-	-- telescope 集成
+	-- adp telescope 集成
 	use 'nvim-telescope/telescope-dap.nvim'
 
 	--- 实用工具 ---
