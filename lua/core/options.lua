@@ -39,7 +39,7 @@ opt.smartcase = true
 -- 外观
 opt.termguicolors = true
 opt.signcolumn = "yes"
-vim.cmd[[colorscheme tokyonight-storm]]
+vim.cmd[[colorscheme tokyonight-night]]
 -- vim.cmd[[highlight Normal guibg=NONE ctermbg=None]]
 -- vim.cmd[[highlight NormalNC guibg=NONE ctermbg=None]]
 -- vim.cmd[[highlight NormalSB guibg=NONE ctermbg=None]]
