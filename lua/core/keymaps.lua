@@ -30,6 +30,9 @@ keymap.set("t", "<M-->", "<c-\\><c-N>:FloatermKill<CR>")
 keymap.set("n", "<M-j>", ":+10<CR>")
 keymap.set("n", "<M-k>", ":-10<CR>")
 
+-- 在光标处显示 lsp hover
+keymap.set("n", "<leader>h", function() vim.lsp.buf.hover() end)
+
 -- 取消高亮
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
