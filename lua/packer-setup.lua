@@ -105,6 +105,8 @@ return require('packer').startup(function(use)
 		'nvim-telescope/telescope.nvim',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+	-- 前端颜色显示
+	use 'norcalli/nvim-colorizer.lua'
 	-- 内嵌终端优化
 	-- use 'skywind3000/vim-terminal-help' 不好用
 	use 'voldikss/vim-floaterm'
