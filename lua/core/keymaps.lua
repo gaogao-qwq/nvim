@@ -43,8 +43,8 @@ keymap.set("n", "<C-a>", "ggVG")
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 -- 切换 buffer
-keymap.set("n", "<leader>a", ":bnext<CR>")
-keymap.set("n", "<leader>d", ":bprevious<CR>")
+keymap.set("n", "<leader><tab>", ":bnext<CR>")
+keymap.set("n", "<leader>q", ":bprevious<CR>")
 
 -- telescope
 local builtin = require('telescope.builtin')
