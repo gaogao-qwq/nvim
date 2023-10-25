@@ -21,10 +21,10 @@ keymap.set("n", "<leader>sv", "<C-w>v") -- 主键 + sv 水平新增窗口
 keymap.set("n", "<leader>sh", "<C-w>s") -- 主键 + sh 垂直新增窗口
 
 -- 内嵌终端
--- ALT + = 打开或关闭内嵌终端
-keymap.set("n", "<M-=>", ":FloatermToggle<CR>")
-keymap.set("t", "<M-=>", "<c-\\><c-N>:FloatermToggle<CR>")
-keymap.set("t", "<M-->", "<c-\\><c-N>:FloatermKill<CR>")
+-- 主键 + = 打开或关闭内嵌终端
+keymap.set("n", "<leader>=", ":FloatermToggle<CR>")
+keymap.set("t", "<leader>=", "<c-\\><c-N>:FloatermToggle<CR>")
+keymap.set("t", "<leader>-", "<c-\\><c-N>:FloatermKill<CR>")
 
 -- 移动
 keymap.set("n", "<M-j>", ":+10<CR>")
