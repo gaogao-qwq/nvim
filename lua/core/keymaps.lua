@@ -22,13 +22,13 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- 主键 + sh 垂直新增窗口
 
 -- 内嵌终端
 -- 主键 + = 打开或关闭内嵌终端
-keymap.set("n", "<leader>=", ":FloatermToggle<CR>")
-keymap.set("t", "<leader>=", "<c-\\><c-N>:FloatermToggle<CR>")
-keymap.set("t", "<leader>-", "<c-\\><c-N>:FloatermKill<CR>")
+keymap.set("n", "<leader>]", ":FloatermToggle<CR>")
+keymap.set("t", "<leader>]", "<c-\\><c-N>:FloatermToggle<CR>")
+keymap.set("t", "<leader>[", "<c-\\><c-N>:FloatermKill<CR>")
 
 -- 移动
-keymap.set("n", "<M-j>", ":+10<CR>")
-keymap.set("n", "<M-k>", ":-10<CR>")
+keymap.set("n", "J", ":+10<CR>")
+keymap.set("n", "K", ":-10<CR>")
 
 -- 在光标处显示 lsp hover
 keymap.set("n", "<leader>h", function() vim.lsp.buf.hover() end)
@@ -43,8 +43,8 @@ keymap.set("n", "<C-a>", "ggVG")
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 -- 切换 buffer
-keymap.set("n", "<M-e>", ":bnext<CR>")
-keymap.set("n", "<M-q>", ":bprevious<CR>")
+keymap.set("n", "<leader>a", ":bnext<CR>")
+keymap.set("n", "<leader>d", ":bprevious<CR>")
 
 -- telescope
 local builtin = require('telescope.builtin')
