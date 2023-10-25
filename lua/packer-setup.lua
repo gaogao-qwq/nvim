@@ -92,6 +92,8 @@ return require('packer').startup(function(use)
 	--- 实用工具 ---
 	-- GitHub Copilot
 	use 'github/copilot.vim'
+	-- WakaTime
+	use 'wakatime/vim-wakatime'
 	-- gcc gc 注释
 	use 'numToStr/Comment.nvim'
 	-- 自动补全括号
