@@ -7,7 +7,7 @@ local keymap = vim.keymap
 --- 插入模式 ---
 keymap.set("i", "jk", "<ESC>") -- esc 改为 jk
 
-keymap.set("i", "~", "copilot#Accept(<CR>)", { silent = true, script = true, expr = true }) -- 接受 copilot 提示 
+keymap.set("i", "~", "copilot#Accept('<CR>')", { silent = true, script = true, expr = true }) -- 接受 copilot 提示 
 
 --- 视觉模式 ---
 -- 单行或多行移动
@@ -42,7 +42,8 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 keymap.set("n", "<C-a>", "ggVG")
 
 -- 打开文件资源管理器
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+keymap.set("n", "<leader>e", ":Neotree<CR>")
+
 -- 切换 buffer
 keymap.set("n", "<leader><tab>", ":bnext<CR>")
 keymap.set("n", "<leader>q", ":bprevious<CR>")

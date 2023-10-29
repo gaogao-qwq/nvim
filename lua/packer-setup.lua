@@ -31,11 +31,14 @@ return require('packer').startup(function(use)
 	}
 	-- 文档树
 	use {
-		'nvim-tree/nvim-tree.lua',
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
 		requires = {
-			'nvim-tree/nvim-web-devicons', -- optional, for file icons
-		},
-		tag = 'nightly' -- optional, updated every week. (see issue #1193)
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			"3rd/image.nvim",
+		}
 	}
 	-- 快速切换窗口
 	use 'christoomey/vim-tmux-navigator'
