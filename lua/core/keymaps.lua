@@ -7,6 +7,8 @@ local keymap = vim.keymap
 --- 插入模式 ---
 keymap.set("i", "jk", "<ESC>") -- esc 改为 jk
 
+keymap.set("i", "~", "copilot#Accept(<CR>)", { silent = true, script = true, expr = true }) -- 接受 copilot 提示 
+
 --- 视觉模式 ---
 -- 单行或多行移动
 keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- shift + j 向下移动
@@ -39,8 +41,7 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 -- 进入视觉模式并全选
 keymap.set("n", "<C-a>", "ggVG")
 
---- 插件 ---
--- nvim-tree
+-- 打开文件资源管理器
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 -- 切换 buffer
 keymap.set("n", "<leader><tab>", ":bnext<CR>")
@@ -61,9 +62,6 @@ keymap.set("n", "<leader>tf", function() require("trouble").toggle("quickfix") e
 keymap.set("n", "<leader>tl", function() require("trouble").toggle("loclist") end)					-- 主键 + tl 窗口级别快速修复
 keymap.set("n", "tr", function() require("trouble").toggle("lsp_references") end)					-- tr 查看光标悬停处引用
 keymap.set("n", "td", function() require("trouble").toggle("lsp_definitions") end)					-- td 查看光标悬停处定义
-
--- GitHub Copilot
-keymap.set("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 -- debug
 keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint(); require'plugin-config.dap.dap-util'.store_breakpoints(true)<cr>")
