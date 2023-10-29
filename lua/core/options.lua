@@ -25,7 +25,6 @@ opt.cursorline = true
 opt.mouse:append("a")
 
 -- 系统剪贴板
-opt.clipboard:append("unnamed")
 opt.clipboard:append("unnamedplus")
 
 -- 默认新窗口右和下
@@ -54,3 +53,6 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
+
+-- 禁用 Copilot Tab 选取补全
+vim.g.copilot_no_tab_map = true

@@ -62,6 +62,9 @@ keymap.set("n", "<leader>tl", function() require("trouble").toggle("loclist") en
 keymap.set("n", "tr", function() require("trouble").toggle("lsp_references") end)					-- tr 查看光标悬停处引用
 keymap.set("n", "td", function() require("trouble").toggle("lsp_definitions") end)					-- td 查看光标悬停处定义
 
+-- GitHub Copilot
+keymap.set("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
 -- debug
 keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint(); require'plugin-config.dap.dap-util'.store_breakpoints(true)<cr>")
 keymap.set("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>")
