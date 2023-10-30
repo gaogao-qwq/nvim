@@ -10,18 +10,19 @@ require("mason").setup({
 
 require("mason-lspconfig").setup({
 	ensure_installed = {
-	"lua_ls",
-	"clangd",
-	"tsserver",
-	"tailwindcss",
-	"bashls",
-	"cssls",
-	"html",
-	"jsonls",
-	"pyright",
-	"rust_analyzer",
-	"gopls",
-	"ltex",
+		"lua_ls",
+		"clangd",
+		"tsserver",
+		"volar",
+		"tailwindcss",
+		"bashls",
+		"cssls",
+		"html",
+		"jsonls",
+		"pyright",
+		"rust_analyzer",
+		"gopls",
+		"ltex",
 	},
 })
 
