@@ -44,11 +44,9 @@ return require('packer').startup(function(use)
 	use 'christoomey/vim-tmux-navigator'
 	-- 语法高亮
 	use 'nvim-treesitter/nvim-treesitter'
-	-- 彩虹括号
-	use 'p00f/nvim-ts-rainbow'
 	-- 缩进提示
 	use 'lukas-reineke/indent-blankline.nvim'
-	-- 彩虹下划线
+	-- 彩虹分隔符
 	use 'HiPhish/rainbow-delimiters.nvim'
 	-- Nerd Fonts 图标补丁
 	use 'mortepau/codicons.nvim'
