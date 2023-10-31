@@ -26,7 +26,8 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
 end)
 
-require("ibl").setup {
+vim.g.rainbow_delimiters = { highlight = indent_highlight }
+require("ibl").setup({
 	indent = {
 		highlight = indent_highlight,
 	},
@@ -34,6 +35,13 @@ require("ibl").setup {
         highlight = whitespace_highlight,
         remove_blankline_trail = false,
     },
-    scope = { enabled = false },
-}
+    scope = {
+		highlight = indent_highlight,
+		show_start = false,
+		show_end = false,
+		show_exact_scope = true,
+	},
+})
+
+hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
