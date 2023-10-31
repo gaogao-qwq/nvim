@@ -23,6 +23,8 @@ require("mason-lspconfig").setup({
 		"rust_analyzer",
 		"gopls",
 		"ltex",
+		"neocmake",
+		"jdtls",
 	},
 })
 
@@ -60,6 +62,14 @@ require'lspconfig'.volar.setup{
   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
 }
 
+require("lspconfig").jsonls.setup {
+	capabilities = capabilities,
+}
+
+require("lspconfig").bashls.setup {
+	capabilities = capabilities,
+}
+
 require("lspconfig").tsserver.setup {
 	capabilities = capabilities,
 }
@@ -72,3 +82,7 @@ require("lspconfig").neocmake.setup {
 	capabilities = capabilities,
 }
 
+require("lspconfig").jdtls.setup {
+	capabilities = capabilities,
+	root_dir = require("lspconfig").util.root_pattern(".git", "mvnw", "pom.xml", "gradlew", "settings.gradle", "settings.gradle.kts"),
+}
