@@ -21,24 +21,20 @@ vim.cmd [[
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
+	--- 前置 & 工具插件 ---
+	use 'nvim-lua/plenary.nvim'
+	use '3rd/image.nvim'
+	use 'MunifTanjim/nui.nvim'
+
 	--- 外观 ---
 	-- 主题
 	use 'folke/tokyonight.nvim'
 	-- 状态栏
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
+	use 'nvim-lualine/lualine.nvim'
 	-- 文档树
 	use {
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
-			"3rd/image.nvim",
-		}
 	}
 	-- 快速切换窗口
 	use 'christoomey/vim-tmux-navigator'
@@ -55,10 +51,7 @@ return require('packer').startup(function(use)
 	-- 自动保存
 	use 'Pocco81/auto-save.nvim'
 	-- 启动页面
-	use {
-		'startup-nvim/startup.nvim',
-		requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
-	}
+	use 'startup-nvim/startup.nvim'
 
 	--- LSP ---
 	-- lspconfig
@@ -104,10 +97,7 @@ return require('packer').startup(function(use)
 	-- 左侧 git 提示
 	use 'lewis6991/gitsigns.nvim'
 	-- 文件检索
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+	use 'nvim-telescope/telescope.nvim'
 	-- 前端颜色显示
 	use 'norcalli/nvim-colorizer.lua'
 	-- 内嵌终端优化
