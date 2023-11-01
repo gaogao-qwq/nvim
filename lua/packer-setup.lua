@@ -77,6 +77,8 @@ return require('packer').startup(function(use)
 	-- 显示引用，定义，实现
 	use 'Wansmer/symbol-usage.nvim'
 	use 'folke/trouble.nvim'
+	-- Java lsp
+	use 'mfussenegger/nvim-jdtls'
 
 	--- 调试器 ---
 	-- dap

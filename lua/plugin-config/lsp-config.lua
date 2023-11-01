@@ -24,7 +24,6 @@ require("mason-lspconfig").setup({
 		"gopls",
 		"ltex",
 		"neocmake",
-		"jdtls",
 	},
 })
 
@@ -82,7 +81,3 @@ require("lspconfig").neocmake.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").jdtls.setup {
-	capabilities = capabilities,
-	root_dir = require("lspconfig").util.root_pattern(".git", "mvnw", "pom.xml", "gradlew", "settings.gradle", "settings.gradle.kts"),
-}
