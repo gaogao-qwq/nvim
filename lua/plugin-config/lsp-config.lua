@@ -24,6 +24,7 @@ require("mason-lspconfig").setup({
 		"gopls",
 		"ltex",
 		"neocmake",
+		"kotlin_language_server",
 	},
 })
 
@@ -78,6 +79,10 @@ require("lspconfig").ltex.setup {
 }
 
 require("lspconfig").neocmake.setup {
+	capabilities = capabilities,
+}
+
+require("lspconfig").kotlin_language_server.setup {
 	capabilities = capabilities,
 }
 
