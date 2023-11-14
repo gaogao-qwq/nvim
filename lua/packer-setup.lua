@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	--- 前置 & 工具插件 ---
+	use 'kevinhwang91/promise-async'
 	use 'nvim-lua/plenary.nvim'
 	use '3rd/image.nvim'
 	use 'MunifTanjim/nui.nvim'
@@ -109,8 +110,8 @@ return require('packer').startup(function(use)
 	use 'fatih/vim-go'
 	-- 画图器
 	use 'jbyuki/venn.nvim'
-	-- 代码块折叠美化
-	use 'anuvyklack/pretty-fold.nvim'
+	-- 代码块折叠生成器
+	use 'kevinhwang91/nvim-ufo'
 
 	if packer_bootstrap then
 		require('packer').sync()

@@ -41,6 +41,10 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 -- 进入视觉模式并全选
 keymap.set("n", "<C-a>", "ggVG")
 
+-- 代码块折叠展开
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+
 -- 打开文件资源管理器
 keymap.set("n", "<leader>e", ":Neotree<CR>")
 
