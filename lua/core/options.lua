@@ -5,7 +5,8 @@ opt.relativenumber = true
 opt.number = true
 
 -- 代码块折叠方式
-opt.foldcolumn = '0'
+opt.foldcolumn = '1'
+opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldenable = true

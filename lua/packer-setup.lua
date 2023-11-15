@@ -112,6 +112,8 @@ return require('packer').startup(function(use)
 	use 'jbyuki/venn.nvim'
 	-- 代码块折叠生成器
 	use 'kevinhwang91/nvim-ufo'
+	-- 列显示状态
+	use 'luukvbaal/statuscol.nvim'
 
 	if packer_bootstrap then
 		require('packer').sync()
