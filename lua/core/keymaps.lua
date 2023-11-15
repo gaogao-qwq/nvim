@@ -29,8 +29,8 @@ keymap.set("t", "<leader>]", "<c-\\><c-N>:FloatermToggle<CR>")
 keymap.set("t", "<leader>[", "<c-\\><c-N>:FloatermKill<CR>")
 
 -- 移动
-keymap.set("n", "J", ":+10<CR>")
-keymap.set("n", "K", ":-10<CR>")
+keymap.set("n", "J", "<C-d>")
+keymap.set("n", "K", "<C-u>")
 
 -- 在光标处显示 lsp hover
 keymap.set("n", "<leader>h", function() vim.lsp.buf.hover() end)
