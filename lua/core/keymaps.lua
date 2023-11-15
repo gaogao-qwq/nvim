@@ -52,6 +52,10 @@ keymap.set("n", "<leader>e", ":Neotree<CR>")
 keymap.set("n", "<leader><tab>", ":bnext<CR>")
 keymap.set("n", "<leader>q", ":bprevious<CR>")
 
+-- 关闭 buffer
+keymap.set("n", "[c", ":BufferLineCloseLeft<CR>")
+keymap.set("n", "]c", ":BufferLineCloseRight<CR>")
+
 -- telescope
 local builtin = require('telescope.builtin')
 keymap.set('n', '<leader>ff', builtin.find_files, {})	-- 主键 + ff 查找文件
