@@ -27,6 +27,12 @@ yay -S tree-sitter
 sudo apt install tree-sitter
 ```
 
+> macOS Homebrew
+
+```bash
+brew install tree-sitter
+```
+
 Install Packer for managing Neovim plugins
 
 > Arch Linux AUR
@@ -35,7 +41,7 @@ Install Packer for managing Neovim plugins
 yay -S nvim-packer-git
 ```
 
-> Other distro
+> Other distro and macOS
 
 
 ```bash
@@ -50,3 +56,4 @@ nvim ~/.config/nvim/lua/packer-setup.lua
 ```
 
 Then just type `:w` and have a nice cup of Libre-tea until Packer get all plugins.
+
