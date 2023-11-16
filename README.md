@@ -1,13 +1,7 @@
 # Personal Neovim repo
 
-<img src="./screenshots/screenshot.png"/>
-
-<details>
-    <summary>More screenshots</summary>
-    <img src="./screenshots/screenshot-1.png"/>
-    <img src="./screenshots/screenshot-2.png"/>
-    <img src="./screenshots/screenshot-3.png"/>
-</details>
+<img src="./screenshots/screenshot_linux.png"/>
+<img src="./screenshots/screenshot_macos.png"/>
 
 ## How to use?
 
