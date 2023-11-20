@@ -114,6 +114,8 @@ return require('packer').startup(function(use)
 	use 'kevinhwang91/nvim-ufo'
 	-- 列显示状态
 	use 'luukvbaal/statuscol.nvim'
+	-- 工作区配置
+	use 'folke/neoconf.nvim'
 
 	if packer_bootstrap then
 		require('packer').sync()

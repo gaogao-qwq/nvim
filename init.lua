@@ -6,6 +6,8 @@ require('core.options')
 require('core.keymaps')
 
 --- 插件配置 ---
+require('plugin-config.mason')
+require('plugin-config.neoconf')
 require('plugin-config.lsp-config')
 require('plugin-config.lualine')
 require('plugin-config.neo-tree')

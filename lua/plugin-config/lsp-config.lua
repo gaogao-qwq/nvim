@@ -1,88 +1,88 @@
-require("mason").setup({
-	ui = {
-		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗",
-		},
-	},
-})
-
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		"lua_ls",
-		"clangd",
-		"tsserver",
-		"volar",
-		"tailwindcss",
-		"bashls",
-		"cssls",
-		"html",
-		"jsonls",
-		"pyright",
-		"rust_analyzer",
-		"gopls",
-		"ltex",
-		"neocmake",
-		"kotlin_language_server",
-	},
-})
-
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local lspconfig = require("lspconfig")
+local lspconfig_configs = require("lspconfig.configs")
 
-require("lspconfig").lua_ls.setup {
+lspconfig.lua_ls.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").clangd.setup {
+lspconfig.clangd.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").pyright.setup {
+lspconfig.pyright.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").rust_analyzer.setup {
+lspconfig.rust_analyzer.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").gopls.setup {
+lspconfig.gopls.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").html.setup {
+lspconfig.html.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").cssls.setup {
+lspconfig.cssls.setup {
 	capabilities = capabilities,
 }
 
-require'lspconfig'.volar.setup{
-  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+lspconfig.volar.setup{
+	filetypes = {
+		'typescript',
+		'javascript',
+		'javascriptreact',
+		'typescriptreact',
+		'vue',
+		'json',
+	},
+	init_options = {
+		languageFeatures = {
+			implementation = true,
+			references = true,
+			definition = true,
+			typeDefinition = true,
+			callHierarchy = true,
+			hover = true,
+			rename = true,
+			renameFileRefactoring = true,
+			signatureHelp = true,
+			codeAction = true,
+			workspaceSymbol = true,
+			completion = {
+				defaultTagNameCase = 'both',
+				defaultAttrNameCase = 'kebabCase',
+				getDocumentNameCasesRequest = false,
+				getDocumentSelectionRequest = false,
+			},
+		}
+	}
 }
 
-require("lspconfig").jsonls.setup {
+lspconfig.jsonls.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").bashls.setup {
+lspconfig.bashls.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").tsserver.setup {
+lspconfig.tsserver.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").ltex.setup {
+lspconfig.ltex.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").neocmake.setup {
+lspconfig.neocmake.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").kotlin_language_server.setup {
+lspconfig.kotlin_language_server.setup {
 	capabilities = capabilities,
 }
 
