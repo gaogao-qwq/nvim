@@ -116,6 +116,11 @@ return require('packer').startup(function(use)
 	use 'luukvbaal/statuscol.nvim'
 	-- 工作区配置
 	use 'folke/neoconf.nvim'
+	-- markdown 预览
+	use({
+    	"iamcco/markdown-preview.nvim",
+    	run = function() vim.fn["mkdp#util#install"]() end,
+	})
 
 	if packer_bootstrap then
 		require('packer').sync()
