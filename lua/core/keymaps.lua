@@ -4,12 +4,18 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
+----------------
 --- 插入模式 ---
+----------------
+
 keymap.set("i", "jk", "<ESC>") -- esc 改为 jk
 
 keymap.set("i", "~", "copilot#Accept('<CR>')", { silent = true, script = true, expr = true }) -- 接受 copilot 提示 
 
+----------------
 --- 视觉模式 ---
+----------------
+
 -- 单行或多行移动
 keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- shift + j 向下移动
 keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- shift + k 向上移动
@@ -17,23 +23,17 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- shift + k 向上移动
 -- 全选
 keymap.set("v", "<C-a>", "<ESC>ggVG")
 
+----------------
 --- 正常模式 ---
+----------------
+
 -- 窗口
 keymap.set("n", "<leader>sv", "<C-w>v") -- 主键 + sv 水平新增窗口
 keymap.set("n", "<leader>sh", "<C-w>s") -- 主键 + sh 垂直新增窗口
 
--- 内嵌终端
--- 主键 + = 打开或关闭内嵌终端
-keymap.set("n", "<leader>]", ":FloatermToggle<CR>")
-keymap.set("t", "<leader>]", "<c-\\><c-N>:FloatermToggle<CR>")
-keymap.set("t", "<leader>[", "<c-\\><c-N>:FloatermKill<CR>")
-
 -- 移动
 keymap.set("n", "J", "<C-d>")
 keymap.set("n", "K", "<C-u>")
-
--- 在光标处显示 lsp hover
-keymap.set("n", "<leader>h", function() vim.lsp.buf.hover() end)
 
 -- 取消高亮
 keymap.set("n", "<leader>nh", ":nohl<CR>")
@@ -64,13 +64,15 @@ keymap.set('n', '<leader>fo', builtin.oldfiles, {})		-- 主键 + fo 查找旧文
 keymap.set('n', '<leader>fb', builtin.buffers, {})		-- 主键 + fb 查找标签
 keymap.set('n', '<leader>fh', builtin.help_tags, {})	-- 主键 + fh 查找帮助
 
-keymap.set("n", "<leader>tt", function() require("trouble").toggle() end)							-- 主键 + tt 显示所有问题
-keymap.set("n", "<leader>tw", function() require("trouble").toggle("workspace_diagnostics") end)	-- 主键 + tw 显示工作区内问题
-keymap.set("n", "<leader>td", function() require("trouble").toggle("document_diagnostics") end)		-- 主键 + td 显示当前文档内问题
-keymap.set("n", "<leader>tf", function() require("trouble").toggle("quickfix") end)					-- 主键 + tf 快速修复
-keymap.set("n", "<leader>tl", function() require("trouble").toggle("loclist") end)					-- 主键 + tl 窗口级别快速修复
-keymap.set("n", "tr", function() require("trouble").toggle("lsp_references") end)					-- tr 查看光标悬停处引用
-keymap.set("n", "td", function() require("trouble").toggle("lsp_definitions") end)					-- td 查看光标悬停处定义
+keymap.set("n", "<leader>f", "<cmd>Lspsaga finder<CR>")				-- 在光标处显示引用和实现信息悬浮窗
+keymap.set("n", "<leader>h", "<cmd>Lspsaga hover_doc<CR>")			-- 在光标处显示 lspsaga hover
+keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>")		-- 在光标处显示快速代码操作悬浮窗
+keymap.set("n", "<leader>r", "<cmd>Lspsaga rename<CR>")				-- 在光标处批量重命名
+
+-- 内嵌终端
+-- 主键 + ] 打开或关闭内嵌终端
+keymap.set("n", "<leader>]", "<cmd>Lspsaga term_toggle<CR>")
+keymap.set("t", "<leader>]", "<cmd>Lspsaga term_toggle<CR>")
 
 -- debug
 keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint(); require'plugin-config.dap.dap-util'.store_breakpoints(true)<cr>")

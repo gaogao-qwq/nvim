@@ -68,9 +68,11 @@ return require('packer').startup(function(use)
 	use 'rafamadriz/friendly-snippets'
 	use 'hrsh7th/cmp-path'
 	use 'folke/neodev.nvim'
+	-- LSP 体验优化
+	use 'nvimdev/lspsaga.nvim'
+
 	-- 显示引用，定义，实现
 	use 'Wansmer/symbol-usage.nvim'
-	use 'folke/trouble.nvim'
 	-- Java lsp
 	use 'mfussenegger/nvim-jdtls'
 
@@ -103,9 +105,6 @@ return require('packer').startup(function(use)
 	use 'nvim-telescope/telescope.nvim'
 	-- 前端颜色显示
 	use 'norcalli/nvim-colorizer.lua'
-	-- 内嵌终端优化
-	-- use 'skywind3000/vim-terminal-help' 不好用
-	use 'voldikss/vim-floaterm'
 	-- vim-go
 	use 'fatih/vim-go'
 	-- 画图器
