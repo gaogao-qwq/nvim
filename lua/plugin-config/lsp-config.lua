@@ -1,6 +1,10 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
-local lspconfig_configs = require("lspconfig.configs")
+
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
 
 lspconfig.lua_ls.setup {
 	capabilities = capabilities,
