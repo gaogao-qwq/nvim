@@ -71,6 +71,9 @@ return require('packer').startup(function(use)
 	-- LSP 体验优化
 	use 'nvimdev/lspsaga.nvim'
 
+	-- 引用，定义，实现跳转
+	use 'folke/trouble.nvim'
+
 	-- 显示引用，定义，实现
 	use 'Wansmer/symbol-usage.nvim'
 	-- Java lsp

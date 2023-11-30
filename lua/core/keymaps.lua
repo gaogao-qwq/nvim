@@ -64,7 +64,11 @@ keymap.set('n', '<leader>fo', builtin.oldfiles, {})		-- 主键 + fo 查找旧文
 keymap.set('n', '<leader>fb', builtin.buffers, {})		-- 主键 + fb 查找标签
 keymap.set('n', '<leader>fh', builtin.help_tags, {})	-- 主键 + fh 查找帮助
 
-keymap.set("n", "<leader>f", "<cmd>Lspsaga finder<CR>")				-- 在光标处显示引用和实现信息悬浮窗
+-- trouble
+keymap.set("n", "tr", function() require("trouble").toggle("lsp_references") end)					-- tr 查看光标悬停处引用
+keymap.set("n", "td", function() require("trouble").toggle("lsp_definitions") end)					-- td 查看光标悬停处定义
+
+-- lspsaga
 keymap.set("n", "<leader>h", "<cmd>Lspsaga hover_doc<CR>")			-- 在光标处显示 lspsaga hover
 keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>")		-- 在光标处显示快速代码操作悬浮窗
 keymap.set("n", "<leader>r", "<cmd>Lspsaga rename<CR>")				-- 在光标处批量重命名
