@@ -57,7 +57,7 @@ lspconfig.volar.setup{
 			codeAction = true,
 			workspaceSymbol = true,
 			completion = {
-				defaultTagNameCase = 'both',
+				defaultTagNameCase = 'kebabCase',
 				defaultAttrNameCase = 'kebabCase',
 				getDocumentNameCasesRequest = false,
 				getDocumentSelectionRequest = false,
@@ -71,10 +71,6 @@ lspconfig.jsonls.setup {
 }
 
 lspconfig.bashls.setup {
-	capabilities = capabilities,
-}
-
-lspconfig.tsserver.setup {
 	capabilities = capabilities,
 }
 
