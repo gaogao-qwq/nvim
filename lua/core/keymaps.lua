@@ -46,7 +46,7 @@ vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 -- 打开文件资源管理器
-keymap.set("n", "<leader>e", ":Neotree<CR>")
+keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 
 -- 切换 buffer
 keymap.set("n", "<leader><tab>", ":bnext<CR>")
