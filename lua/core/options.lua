@@ -60,3 +60,18 @@ end
 vim.g.copilot_no_tab_map = true
 -- 默认关闭 Copilot
 vim.g.copilot_enabled = false
+
+---------------
+--- Neovide ---
+---------------
+vim.o.guifont = "FiraCode Nerd Font Mono:h14"
+vim.g.neovide_transparency = 0.9
+vim.g.neovide_scroll_animation_length = 0.3
+vim.g.neovide_underline_stroke_scale = 1.0
+vim.g.neovide_theme = 'auto'
+vim.g.neovide_refresh_rate = 165
+vim.g.neovide_refresh_rate_idle = 5
+vim.g.neovide_confirm_quit = true
+vim.g.neovide_cursor_trail_size = 0.8
+vim.g.neovide_cursor_vfx_mode = "sonicboom"
+
