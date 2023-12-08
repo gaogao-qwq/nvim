@@ -57,12 +57,18 @@ keymap.set("n", "[c", ":BufferLineCloseLeft<CR>")
 keymap.set("n", "]c", ":BufferLineCloseRight<CR>")
 
 -- telescope
-local builtin = require('telescope.builtin')
-keymap.set('n', '<leader>ff', builtin.find_files, {})	-- 主键 + ff 查找文件
-keymap.set('n', '<leader>fo', builtin.oldfiles, {})		-- 主键 + fo 查找旧文件
--- keymap.set('n', '<leader>fg', builtin.live_grep, {})
-keymap.set('n', '<leader>fb', builtin.buffers, {})		-- 主键 + fb 查找标签
-keymap.set('n', '<leader>fh', builtin.help_tags, {})	-- 主键 + fh 查找帮助
+local telescope = require('telescope.builtin')
+keymap.set('n', '<leader>ff', telescope.find_files, {})		-- 主键 + ff 查找文件
+keymap.set('n', '<leader>fo', telescope.oldfiles, {})		-- 主键 + fo 查找旧文件
+keymap.set('n', '<leader>fg', telescope.live_grep, {})		-- 主键 + fg 查找单词
+keymap.set('n', '<leader>fb', telescope.buffers, {})		-- 主键 + fb 查找标签
+keymap.set('n', '<leader>fh', telescope.help_tags, {})		-- 主键 + fh 查找帮助
+keymap.set(													-- 主键 + fb 从当前 buffer 的路径浏览文件
+	'n',
+	'<leader>fb',
+	"<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+	{}
+)
 
 -- trouble
 keymap.set("n", "tr", function() require("trouble").toggle("lsp_references") end)					-- tr 查看光标悬停处引用
