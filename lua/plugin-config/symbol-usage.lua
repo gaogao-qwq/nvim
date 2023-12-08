@@ -1,3 +1,5 @@
+local SymbolKind = vim.lsp.protocol.SymbolKind
+
 local function h(name) return vim.api.nvim_get_hl(0, { name = name }) end
 
 -- hl-groups can have any name
@@ -46,5 +48,9 @@ local function text_format(symbol)
 end
 
 require('symbol-usage').setup({
+	kinds = { SymbolKind.Function, SymbolKind.Method },
+	references = { enabled = true, include_declaration = false },
+	definition = { enabled = true },
+	implementation = { enabled = true },
 	text_format = text_format,
 })
