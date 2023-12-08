@@ -104,8 +104,14 @@ return require('packer').startup(function(use)
 	use 'akinsho/bufferline.nvim'
 	-- 左侧 git 提示
 	use 'lewis6991/gitsigns.nvim'
-	-- 文件检索
+	-- telescope 文件检索
 	use 'nvim-telescope/telescope.nvim'
+	-- telescope 文件浏览器集成
+	use 'nvim-telescope/telescope-file-browser.nvim'
+	-- telescope fzf 集成
+	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+	-- telescope 单词检索
+	use 'nvim-telescope/telescope-live-grep-args.nvim'
 	-- 前端颜色显示
 	use 'norcalli/nvim-colorizer.lua'
 	-- vim-go
