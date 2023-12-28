@@ -31,9 +31,18 @@ keymap.set("v", "<C-a>", "<ESC>ggVG")
 keymap.set("n", "<leader>sv", "<C-w>v") -- 主键 + sv 水平新增窗口
 keymap.set("n", "<leader>sh", "<C-w>s") -- 主键 + sh 垂直新增窗口
 
--- 移动
-keymap.set("n", "J", "<C-d>")
-keymap.set("n", "K", "<C-u>")
+-- 平滑移动
+local t = {}
+t['K'] = {'scroll', {'-vim.wo.scroll', 'true', '250'}}
+t['J'] = {'scroll', { 'vim.wo.scroll', 'true', '250'}}
+t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
+t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
+t['<C-y>'] = {'scroll', {'-0.10', 'false', '100'}}
+t['<C-e>'] = {'scroll', { '0.10', 'false', '100'}}
+t['zt']    = {'zt', {'250'}}
+t['zz']    = {'zz', {'250'}}
+t['zb']    = {'zb', {'250'}}
+require('neoscroll.config').set_mappings(t)
 
 -- 取消高亮
 keymap.set("n", "<leader>nh", ":nohl<CR>")

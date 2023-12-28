@@ -53,6 +53,8 @@ return require('packer').startup(function(use)
 	use 'Pocco81/auto-save.nvim'
 	-- 启动页面
 	use 'startup-nvim/startup.nvim'
+	-- 平滑滚动
+	use 'karb94/neoscroll.nvim'
 
 	--- LSP ---
 	-- lspconfig
