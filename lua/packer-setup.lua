@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
 	use 'nvim-lua/plenary.nvim'
 	use '3rd/image.nvim'
 	use 'MunifTanjim/nui.nvim'
+	use 'stevearc/dressing.nvim'
 
 	--- 外观 ---
 	-- 主题
@@ -80,6 +81,8 @@ return require('packer').startup(function(use)
 	use 'mfussenegger/nvim-jdtls'
 	-- Justfile 语法高亮
 	use 'IndianBoy42/tree-sitter-just'
+	-- Flutter lsp 工具
+	use 'akinsho/flutter-tools.nvim'
 
 	--- 调试器 ---
 	-- dap
