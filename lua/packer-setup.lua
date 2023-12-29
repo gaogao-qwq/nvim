@@ -79,7 +79,7 @@ return require('packer').startup(function(use)
 	-- Java lsp
 	use 'mfussenegger/nvim-jdtls'
 	-- Justfile 语法高亮
-	use 'NoahTheDuke/vim-just'
+	use 'IndianBoy42/tree-sitter-just'
 
 	--- 调试器 ---
 	-- dap

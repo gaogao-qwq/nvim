@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-	ensure_installed = { "vim", "bash", "c", "cpp", "cmake", "javascript", "typescript", "json",
+	ensure_installed = { "vim", "bash", "c", "cpp", "make", "cmake", "javascript", "typescript", "json",
 		"lua", "python", "java", "go", "rust", "html", "css", "scss", "vue", "dart" },
 
 	highlight = { enable = true },
@@ -10,3 +10,5 @@ require'nvim-treesitter.configs'.setup {
 		max_file_lines = nil,
 	}
 }
+
+require"nvim-treesitter.install".compilers = {"gcc-11"}
