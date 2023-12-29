@@ -72,14 +72,14 @@ return require('packer').startup(function(use)
 	use 'folke/neodev.nvim'
 	-- LSP 体验优化
 	use 'nvimdev/lspsaga.nvim'
-
 	-- 引用，定义，实现跳转
 	use 'folke/trouble.nvim'
-
 	-- 显示引用，定义，实现
 	use 'Wansmer/symbol-usage.nvim'
 	-- Java lsp
 	use 'mfussenegger/nvim-jdtls'
+	-- Justfile 语法高亮
+	use 'NoahTheDuke/vim-just'
 
 	--- 调试器 ---
 	-- dap
