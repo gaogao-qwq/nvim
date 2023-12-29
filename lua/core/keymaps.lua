@@ -82,6 +82,7 @@ keymap.set(													-- 主键 + fb 从当前 buffer 的路径浏览文件
 -- trouble
 keymap.set("n", "tr", function() require("trouble").toggle("lsp_references") end)					-- tr 查看光标悬停处引用
 keymap.set("n", "td", function() require("trouble").toggle("lsp_definitions") end)					-- td 查看光标悬停处定义
+keymap.set("n", "ti", function() require("trouble").toggle("lsp_implementations") end)
 
 -- lspsaga
 keymap.set("n", "<leader>h", "<cmd>Lspsaga hover_doc<CR>")			-- 在光标处显示 lspsaga hover
