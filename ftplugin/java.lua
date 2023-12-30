@@ -7,10 +7,13 @@ bo.softtabstop = 4 -- number of spaces a <Tab> counts for. When 0, feature is of
 
 local home = string.sub(vim.fn.system("echo $HOME"), 0, -2)
 local lombok_jar = home .. "/.local/share/eclipse/lombok.jar"
-local jdtls_bin = string.sub(vim.fn.system("readlink -f $(which jdtls)"), 0, -2)
-local jdtls_dir = string.sub(jdtls_bin, 0, -11)
-local jdtls_jar = vim.fn.glob(jdtls_dir .. "/libexec/plugins/org.eclipse.equinox.launcher_*.jar")
-local jdtls_conf = jdtls_dir .. "/libexec/config_mac"
+local jdtls_jar = vim.fn.glob(home .. "/.local/share/eclipse/jdtls/plugins/org.eclipse.equinox.launcher_*.jar")
+local jdtls_conf = ""
+if vim.loop.os_uname().sysname == "Linux" then
+	jdtls_conf = home .. "/.local/share/eclipse/jdtls/config_linux"
+elseif vim.loop.os_uname().sysname == "Darwin" then
+	jdtls_conf = home .. "/.local/share/eclipse/jdtls/config_macos"
+end
 local root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1])
 local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
@@ -46,4 +49,5 @@ local config = {
 		'-data', workspace_folder,
 	},
 }
+
 require('jdtls').start_or_attach(config)
