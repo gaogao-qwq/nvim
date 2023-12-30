@@ -11,4 +11,6 @@ require'nvim-treesitter.configs'.setup {
 	}
 }
 
-require"nvim-treesitter.install".compilers = {"gcc-11"}
+if vim.loop.os_uname().sysname == "Darwin" then
+	require"nvim-treesitter.install".compilers = {"gcc-11"}
+end
