@@ -12,7 +12,7 @@ local jdtls_conf = ""
 if vim.loop.os_uname().sysname == "Linux" then
 	jdtls_conf = home .. "/.local/share/eclipse/jdtls/config_linux"
 elseif vim.loop.os_uname().sysname == "Darwin" then
-	jdtls_conf = home .. "/.local/share/eclipse/jdtls/config_macos"
+	jdtls_conf = home .. "/.local/share/eclipse/jdtls/config_mac"
 end
 local root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1])
 local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
