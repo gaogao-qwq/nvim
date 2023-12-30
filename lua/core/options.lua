@@ -49,6 +49,9 @@ vim.cmd[[colorscheme tokyonight-night]]
 -- vim.cmd[[highlight TelescopeNormal guibg=NONE ctermbg=None]]
 -- vim.cmd[[highlight SignColumn guibg=NONE ctermbg=None]]
 
+-- 使用 nvim-notify 替代默认通知
+vim.notify = require("notify")
+
 -- 诊断标志
 local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do
