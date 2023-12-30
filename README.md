@@ -11,7 +11,7 @@ cd ~/.config
 git clone https://github.com/gaogao-qwq/nvim.git
 ```
 
-Install tree-sitter
+### Install tree-sitter
 
 > Arch Linux AUR
 
@@ -33,7 +33,13 @@ sudo apt install tree-sitter
 brew install tree-sitter
 ```
 
-Install Packer for managing Neovim plugins
+### (Optional)Install jdtls for java LSP support.
+
+```bash
+just jdtls # Tested on Arch Linux & MacOS.
+```
+
+### Install Packer for managing Neovim plugins
 
 > Arch Linux AUR
 
