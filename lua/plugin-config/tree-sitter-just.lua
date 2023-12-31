@@ -7,3 +7,13 @@ require("nvim-treesitter.parsers").get_parser_configs().just = {
 	},
 	maintainers = { "@IndianBoy42" },
 }
+
+require("nvim-treesitter.configs").setup {
+	indent = {
+		enable = true,
+		disable = {
+			"dart",
+		},
+	},
+}
+
