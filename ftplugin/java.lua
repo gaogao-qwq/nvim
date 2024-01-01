@@ -43,7 +43,6 @@ local config = {
 		'--add-opens', 'java.base/java.util=ALL-UNNAMED',
 		'--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 		'-javaagent:' .. lombok_jar,
-		'-Xbootclasspath/a:' .. lombok_jar,
 		'-jar', jdtls_jar,
 		'-configuration', jdtls_conf,
 		'-data', workspace_folder,
