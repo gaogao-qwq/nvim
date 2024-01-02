@@ -45,7 +45,7 @@ t['zb']    = {'zb', {'250'}}
 require('neoscroll.config').set_mappings(t)
 
 -- 取消高亮
-keymap.set("n", "<leader>nh", ":nohl<CR>")
+keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
 
 -- 进入视觉模式并全选
 keymap.set("n", "<C-a>", "ggVG")
@@ -58,12 +58,12 @@ keymap.set('n', 'zM', require('ufo').closeAllFolds)
 keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 
 -- 切换 buffer
-keymap.set("n", "<leader><tab>", ":bnext<CR>")
-keymap.set("n", "<leader>q", ":bprevious<CR>")
+keymap.set("n", "<leader><tab>", "<cmd>bnext<CR>")
+keymap.set("n", "<leader>q", "<cmd>bprevious<CR>")
 
 -- 关闭 buffer
-keymap.set("n", "[c", ":BufferLineCloseLeft<CR>")
-keymap.set("n", "]c", ":BufferLineCloseRight<CR>")
+keymap.set("n", "[c", "<cmd>BufferLineCloseLeft<CR>")
+keymap.set("n", "]c", "<cmd>BufferLineCloseRight<CR>")
 
 -- telescope
 local telescope = require('telescope.builtin')
