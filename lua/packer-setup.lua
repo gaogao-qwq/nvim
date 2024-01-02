@@ -58,6 +58,8 @@ return require('packer').startup(function(use)
 	use 'karb94/neoscroll.nvim'
 	-- nvim 信息弹窗
 	use 'rcarriga/nvim-notify'
+	-- 更好的 cmdline
+	use 'folke/noice.nvim'
 
 	--- LSP ---
 	-- lspconfig
