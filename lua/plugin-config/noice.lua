@@ -26,7 +26,18 @@ require("noice").setup({
 			enabled = false,
 		},
 		hover = {
-			enabled = false,
+			enabled = true,
+			silent = false,
+			view = nil,
+		},
+		signature = {
+			enabled = true,
+		},
+		messages = {
+			enabld = true,
+		},
+		documentation = {
+			view = "hover"
 		}
 	},
 	presets = {
