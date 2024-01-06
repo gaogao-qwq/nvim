@@ -55,7 +55,7 @@ keymap.set('n', 'zR', require('ufo').openAllFolds)
 keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 -- 打开文件资源管理器
-keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>")
+keymap.set("n", "<leader>e", "<cmd>Neotree<CR>")
 
 -- 切换 buffer
 keymap.set("n", "<leader><tab>", "<cmd>bnext<CR>")
