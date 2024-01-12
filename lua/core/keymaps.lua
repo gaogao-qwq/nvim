@@ -27,6 +27,10 @@ keymap.set("v", "<C-a>", "<ESC>ggVG")
 --- 正常模式 ---
 ----------------
 
+-- 切换自动换行模式
+keymap.set("n", "<leader>nw", "<cmd>set nowrap<CR>")
+keymap.set("n", "<leader>wr", "<cmd>set wrap<CR>")
+
 -- 窗口
 keymap.set("n", "<leader>sv", "<C-w>v") -- 主键 + sv 水平新增窗口
 keymap.set("n", "<leader>sh", "<C-w>s") -- 主键 + sh 垂直新增窗口
