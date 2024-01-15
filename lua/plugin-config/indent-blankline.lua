@@ -28,18 +28,12 @@ end)
 
 vim.g.rainbow_delimiters = { highlight = indent_highlight }
 require("ibl").setup({
-	indent = {
-		highlight = indent_highlight,
-	},
     whitespace = {
         highlight = whitespace_highlight,
         remove_blankline_trail = false,
     },
     scope = {
 		highlight = indent_highlight,
-		show_start = false,
-		show_end = false,
-		show_exact_scope = true,
 	},
 })
 
