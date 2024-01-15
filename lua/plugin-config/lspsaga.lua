@@ -1,1 +1,5 @@
-require('lspsaga').setup({})
+require('lspsaga').setup({
+	lightbulb = {
+		enable = false
+	}
+})
