@@ -17,8 +17,8 @@ keymap.set("i", "~", "copilot#Accept('<CR>')", { silent = true, script = true, e
 ----------------
 
 -- 单行或多行移动
-keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- shift + j 向下移动
-keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- shift + k 向上移动
+keymap.set("v", "<leader>J", ":m '>+1<CR>gv=gv") -- 主键 + shift + j 向下移动
+keymap.set("v", "<leader>K", ":m '<-2<CR>gv=gv") -- 主键 + shift + k 向上移动
 
 -- 全选
 keymap.set("v", "<C-a>", "<ESC>ggVG")
