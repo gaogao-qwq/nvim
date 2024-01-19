@@ -105,6 +105,8 @@ return require('packer').startup(function(use)
 	use 'github/copilot.vim'
 	-- WakaTime
 	use 'wakatime/vim-wakatime'
+	-- Discord rich presence
+	use 'andweeb/presence.nvim'
 	-- gcc gc 注释
 	use 'numToStr/Comment.nvim'
 	-- 自动补全括号
