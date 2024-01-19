@@ -12,6 +12,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"lua_ls",
 		"clangd",
+		"asm_lsp",
 		"volar",
 		"tailwindcss",
 		"bashls",

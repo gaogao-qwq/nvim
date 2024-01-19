@@ -10,6 +10,10 @@ lspconfig.lua_ls.setup {
 	capabilities = capabilities,
 }
 
+lspconfig.asm_lsp.setup {
+	capabilities = capabilities,
+}
+
 lspconfig.clangd.setup {
 	capabilities = capabilities,
 }
@@ -62,7 +66,8 @@ lspconfig.volar.setup{
 				getDocumentNameCasesRequest = false,
 				getDocumentSelectionRequest = false,
 			},
-		}
+		},
+		capabilities = capabilities,
 	}
 }
 
