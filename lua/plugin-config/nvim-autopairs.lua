@@ -10,7 +10,7 @@ npairs.setup {
 		javascript = { "string", "template_string" },
 	},
 	fast_wrap = {
-		map = '<C-w>',
+		map = '<C-,>',
 		chars = { '{', '[', '(', '"', "'" },
 		pattern = [=[[%'%"%)%>%]%)%}%,]]=],
 		end_key = '$',
