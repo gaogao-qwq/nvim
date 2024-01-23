@@ -10,7 +10,7 @@ local keymap = vim.keymap
 
 keymap.set("i", "jk", "<ESC>") -- esc 改为 jk
 
-keymap.set("i", "~", "copilot#Accept('<CR>')", { silent = true, script = true, expr = true }) -- 接受 copilot 提示 
+-- keymap.set("i", "~", "copilot#Accept('<CR>')", { silent = true, script = true, expr = true }) -- 接受 copilot 提示 
 
 ----------------
 --- 视觉模式 ---

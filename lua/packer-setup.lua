@@ -102,7 +102,8 @@ return require('packer').startup(function(use)
 
 	--- 实用工具 ---
 	-- GitHub Copilot
-	use 'github/copilot.vim'
+	use 'zbirenbaum/copilot.lua'
+	use 'zbirenbaum/copilot-cmp'
 	-- WakaTime
 	use 'wakatime/vim-wakatime'
 	-- Discord rich presence

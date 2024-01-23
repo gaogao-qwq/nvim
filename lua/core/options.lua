@@ -60,9 +60,9 @@ for type, icon in pairs(signs) do
 end
 
 -- 禁用 Copilot Tab 选取补全
-vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_no_tab_map = true
 -- 默认关闭 Copilot
-vim.g.copilot_enabled = false
+-- vim.g.copilot_enabled = false
 
 ---------------
 --- Neovide ---
