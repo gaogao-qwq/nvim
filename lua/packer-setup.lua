@@ -40,6 +40,8 @@ return require('packer').startup(function(use)
 	}
 	-- 快速切换窗口
 	use 'christoomey/vim-tmux-navigator'
+	-- 引用高亮
+	use 'RRethy/vim-illuminate'
 	-- 语法高亮
 	use 'nvim-treesitter/nvim-treesitter'
 	-- 缩进提示
