@@ -76,6 +76,7 @@ keymap.set('n', '<leader>fo', telescope.oldfiles, {})		-- 主键 + fo 查找旧�
 keymap.set('n', '<leader>fg', telescope.live_grep, {})		-- 主键 + fg 查找单词
 keymap.set('n', '<leader>fb', telescope.buffers, {})		-- 主键 + fb 查找标签
 keymap.set('n', '<leader>fh', telescope.help_tags, {})		-- 主键 + fh 查找帮助
+keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<CR>')		-- 主键 + ft 查找 TODO
 keymap.set(													-- 主键 + fb 从当前 buffer 的路径浏览文件
 	'n',
 	'<leader>fb',
@@ -86,7 +87,8 @@ keymap.set(													-- 主键 + fb 从当前 buffer 的路径浏览文件
 -- trouble
 keymap.set("n", "tr", function() require("trouble").toggle("lsp_references") end)					-- tr 查看光标悬停处引用
 keymap.set("n", "td", function() require("trouble").toggle("lsp_definitions") end)					-- td 查看光标悬停处定义
-keymap.set("n", "ti", function() require("trouble").toggle("lsp_implementations") end)
+keymap.set("n", "ti", function() require("trouble").toggle("lsp_implementations") end)				-- ti 查看光标悬停处实现
+keymap.set("n", "tt", "<cmd>TodoTrouble<CR>")														-- tt 查看光标悬停处 TODO
 
 -- lspsaga
 keymap.set("n", "<leader>h", "<cmd>Lspsaga hover_doc<CR>")			-- 在光标处显示 lspsaga hover

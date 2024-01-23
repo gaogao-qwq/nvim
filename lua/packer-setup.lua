@@ -31,6 +31,8 @@ return require('packer').startup(function(use)
 	--- 外观 ---
 	-- 主题
 	use 'folke/tokyonight.nvim'
+	-- TODO 高亮
+	use 'folke/todo-comments.nvim'
 	-- 状态栏
 	use 'nvim-lualine/lualine.nvim'
 	-- 文档树
