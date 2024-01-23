@@ -5,6 +5,12 @@ require("bufferline").setup {
 		-- 标签编号
 		numbers = function(opts)
 			return string.format('%s|%s', opts.id, opts.raise(opts.ordinal))
-		end
+		end,
+		offsets = {
+			filetype = "neo-tree",
+			text = "Neo-tree",
+			highlight = "Directory",
+			text_align = "left"
+		}
 	}
 }
