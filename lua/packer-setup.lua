@@ -87,6 +87,8 @@ return require('packer').startup(function(use)
 	use 'Wansmer/symbol-usage.nvim'
 	-- Java lsp
 	use 'mfussenegger/nvim-jdtls'
+	-- rust tools forc
+	use 'mrcjkb/rustaceanvim'
 	-- Justfile 语法高亮
 	use 'IndianBoy42/tree-sitter-just'
 	-- Flutter lsp 工具
