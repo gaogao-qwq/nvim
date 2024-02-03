@@ -58,9 +58,8 @@ cmp.setup({
 			"s",
 		}),
 	}),
-
-	-- 这里重要
 	sources = cmp.config.sources({
+		{ name = 'orgmode' },
 		{ name = 'copilot' },
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },

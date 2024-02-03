@@ -142,6 +142,10 @@ return require('packer').startup(function(use)
 	use 'luukvbaal/statuscol.nvim'
 	-- 工作区配置
 	use 'folke/neoconf.nvim'
+	-- orgmode 支持
+	use 'nvim-orgmode/orgmode'
+	-- 文档抬头显示
+	use 'lukas-reineke/headlines.nvim'
 	-- markdown 预览
 	use({
     	"iamcco/markdown-preview.nvim",
