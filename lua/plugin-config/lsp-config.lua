@@ -34,6 +34,10 @@ lspconfig.cssls.setup {
 	capabilities = capabilities,
 }
 
+lspconfig.eslint.setup {
+	capabilities = capabilities,
+}
+
 lspconfig.volar.setup{
 	filetypes = {
 		'typescript',
@@ -76,6 +80,7 @@ lspconfig.bashls.setup {
 }
 
 lspconfig.ltex.setup {
+	filetypes = { "plaintex", "tex", "markdown", "org" },
 	capabilities = capabilities,
 }
 
