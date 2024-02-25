@@ -62,10 +62,11 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
--- 禁用 Copilot Tab 选取补全
--- vim.g.copilot_no_tab_map = true
 -- 默认关闭 Copilot
--- vim.g.copilot_enabled = false
+vim.api.nvim_create_autocmd("VimEnter", {
+	pattern = "*",
+	command = "Copilot disable"
+})
 
 ---------------
 --- Neovide ---
