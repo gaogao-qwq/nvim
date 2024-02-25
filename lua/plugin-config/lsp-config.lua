@@ -45,7 +45,6 @@ lspconfig.volar.setup{
 		'javascriptreact',
 		'typescriptreact',
 		'vue',
-		'json',
 	},
 	init_options = {
 		languageFeatures = {
@@ -89,6 +88,10 @@ lspconfig.neocmake.setup {
 }
 
 lspconfig.kotlin_language_server.setup {
+	capabilities = capabilities,
+}
+
+lspconfig.phpactor.setup {
 	capabilities = capabilities,
 }
 
