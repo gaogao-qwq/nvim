@@ -27,6 +27,10 @@ lspconfig.gopls.setup {
 }
 
 lspconfig.html.setup {
+	filetypes = {
+		'html',
+		'php',
+	},
 	capabilities = capabilities,
 }
 
