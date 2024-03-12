@@ -62,12 +62,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
--- 默认关闭 Copilot
-vim.api.nvim_create_autocmd("VimEnter", {
-	pattern = "*",
-	command = "Copilot disable"
-})
-
 ---------------
 --- Neovide ---
 ---------------

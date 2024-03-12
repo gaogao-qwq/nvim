@@ -107,9 +107,6 @@ return require('packer').startup(function(use)
 	use 'nvim-telescope/telescope-dap.nvim'
 
 	--- 实用工具 ---
-	-- GitHub Copilot
-	use 'zbirenbaum/copilot.lua'
-	use 'zbirenbaum/copilot-cmp'
 	-- WakaTime
 	use 'wakatime/vim-wakatime'
 	-- Discord rich presence
