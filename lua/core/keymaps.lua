@@ -56,6 +56,9 @@ keymap.set("n", "<C-a>", "ggVG")
 keymap.set('n', 'zR', require('ufo').openAllFolds)
 keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
+-- 切换 nvim-cmp 补全启用状态
+keymap.set("n", "<leader>tm", function() vim.g.cmp_enabled = not vim.g.cmp_enabled end)
+
 -- 打开文件资源管理器
 keymap.set("n", "<leader>e", "<cmd>Neotree<CR>")
 

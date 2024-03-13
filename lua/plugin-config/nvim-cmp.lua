@@ -1,3 +1,4 @@
+vim.g.cmp_enabled = true
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
 	return
@@ -17,12 +18,15 @@ local check_backspace = function()
 end
 
 cmp.setup({
+	enabled = function()
+		return vim.g.cmp_enabled
+	end,
 	snippet = {
 		expand = function(args)
 			require('luasnip').lsp_expand(args.body)
 		end,
 	},
-	mapping = cmp.mapping.preset.insert({
+	mapping = {
 		['<C-b>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-e>'] = cmp.mapping.abort(),  -- 取消补全，esc也可以退出
@@ -57,7 +61,7 @@ cmp.setup({
 			"i",
 			"s",
 		}),
-	}),
+	},
 	sources = cmp.config.sources({
 		{ name = 'orgmode' },
 		{ name = 'nvim_lsp' },
