@@ -1,3 +1,8 @@
+require("nvim-autopairs").setup {
+	map_c_h = true,
+	map_c_w = true
+}
+
 local npairs_ok, npairs = pcall(require, "nvim-autopairs")
 if not npairs_ok then
 	return
@@ -10,7 +15,7 @@ npairs.setup {
 		javascript = { "string", "template_string" },
 	},
 	fast_wrap = {
-		map = '<C-,>',
+		map = '<C-p>',
 		chars = { '{', '[', '(', '"', "'" },
 		pattern = [=[[%'%"%)%>%]%)%}%,]]=],
 		end_key = '$',
