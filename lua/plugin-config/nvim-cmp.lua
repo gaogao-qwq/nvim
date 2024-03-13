@@ -82,6 +82,7 @@ cmp.setup({
 		}),
 	},
 	sources = cmp.config.sources({
+		{ name = "calc" },
 		{ name = 'orgmode' },
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
