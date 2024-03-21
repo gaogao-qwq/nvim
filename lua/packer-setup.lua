@@ -89,7 +89,7 @@ return require('packer').startup(function(use)
 	use 'Wansmer/symbol-usage.nvim'
 	-- Java lsp
 	use 'mfussenegger/nvim-jdtls'
-	-- rust tools forc
+	-- rust tools fork
 	use 'mrcjkb/rustaceanvim'
 	-- Justfile 语法高亮
 	use 'IndianBoy42/tree-sitter-just'
@@ -150,6 +150,8 @@ return require('packer').startup(function(use)
     	"iamcco/markdown-preview.nvim",
     	run = function() vim.fn["mkdp#util#install"]() end,
 	})
+	-- 大文件自动关闭部分特性
+	use 'LunarVim/bigfile.nvim'
 
 	if packer_bootstrap then
 		require('packer').sync()
