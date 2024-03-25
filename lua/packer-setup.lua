@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
 	use '3rd/image.nvim'
 	use 'MunifTanjim/nui.nvim'
 	use 'stevearc/dressing.nvim'
+	use 'nvim-neotest/nvim-nio'
 
 	--- 外观 ---
 	-- 主题
