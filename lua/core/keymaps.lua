@@ -15,8 +15,8 @@ keymap.set("i", "jk", "<ESC>") -- esc 改为 jk
 ----------------
 
 -- 单行或多行移动
-keymap.set("v", "<leader>J", ":m '>+1<CR>gv=gv") -- 主键 + shift + j 向下移动
-keymap.set("v", "<leader>K", ":m '<-2<CR>gv=gv") -- 主键 + shift + k 向上移动
+keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv") -- Meta + j 向下移动
+keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv") -- Meta + k 向上移动
 
 -- 全选
 keymap.set("v", "<C-a>", "<ESC>ggVG")
@@ -56,8 +56,11 @@ keymap.set("n", "<C-a>", "ggVG")
 keymap.set('n', 'zR', require('ufo').openAllFolds)
 keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
+-- 切换 inlay_hint 启用状态
+keymap.set('n', '<leader>li', function () vim.lsp.inlay_hint.enable(0, true) end)
+
 -- 切换 nvim-cmp 补全启用状态
-keymap.set("n", "<leader>tm", function() vim.g.cmp_enabled = not vim.g.cmp_enabled end)
+keymap.set("n", "<leader>lc", function() vim.g.cmp_enabled = not vim.g.cmp_enabled end)
 
 -- 打开文件资源管理器
 keymap.set("n", "<leader>e", "<cmd>Neotree<CR>")
