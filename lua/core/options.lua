@@ -52,6 +52,9 @@ vim.cmd[[colorscheme tokyonight-night]]
 -- vim.cmd[[highlight TelescopeNormal guibg=NONE ctermbg=None]]
 -- vim.cmd[[highlight SignColumn guibg=NONE ctermbg=None]]
 
+-- 默认启用 inlay_hint
+vim.lsp.inlay_hint.enable(0, true)
+
 -- 使用 nvim-notify 替代默认通知
 vim.notify = require("notify")
 

@@ -57,7 +57,9 @@ keymap.set('n', 'zR', require('ufo').openAllFolds)
 keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 -- 切换 inlay_hint 启用状态
-keymap.set('n', '<leader>li', function () vim.lsp.inlay_hint.enable(0, true) end)
+keymap.set('n', '<leader>li', function ()
+	vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled(0))
+end)
 
 -- 切换 nvim-cmp 补全启用状态
 keymap.set("n", "<leader>lc", function() vim.g.cmp_enabled = not vim.g.cmp_enabled end)
