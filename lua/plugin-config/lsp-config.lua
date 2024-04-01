@@ -95,7 +95,7 @@ lspconfig.kotlin_language_server.setup {
 	capabilities = capabilities,
 }
 
-lspconfig.phpactor.setup {
+lspconfig.intelephense.setup {
 	capabilities = capabilities,
 }
 
