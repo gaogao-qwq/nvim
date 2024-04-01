@@ -24,7 +24,6 @@ return require('packer').startup(function(use)
 	--- 前置 & 工具插件 ---
 	use 'kevinhwang91/promise-async'
 	use 'nvim-lua/plenary.nvim'
-	use '3rd/image.nvim'
 	use 'MunifTanjim/nui.nvim'
 	use 'stevearc/dressing.nvim'
 	use 'nvim-neotest/nvim-nio'
