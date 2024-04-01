@@ -10,5 +10,6 @@ require('flutter-tools').setup {
 			virtual_text = true,
 			virtual_text_str = "■",
 		}
-	}
+	},
+	fvm = true
 }
