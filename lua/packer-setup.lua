@@ -110,6 +110,8 @@ return require('packer').startup(function(use)
 	use 'nvim-telescope/telescope-dap.nvim'
 
 	--- 实用工具 ---
+	-- 嵌入 nvim 至浏览器中
+	use 'glacambre/firenvim'
 	-- WakaTime
 	use 'wakatime/vim-wakatime'
 	-- Discord rich presence
