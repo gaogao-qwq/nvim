@@ -1,2 +1,0 @@
-require("neoconf").setup()
-
