@@ -3,7 +3,6 @@ return {
 	"mrcjkb/rustaceanvim",
 	"fatih/vim-go",
 	"IndianBoy42/tree-sitter-just",
-	"glacambre/firenvim",
 	"wakatime/vim-wakatime",
 	"andweeb/presence.nvim",
 	"numToStr/Comment.nvim",
