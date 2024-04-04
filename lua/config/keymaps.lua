@@ -14,24 +14,12 @@ keymap.set("i", "jk", "<ESC>") -- esc 改为 jk
 --- 视觉模式 ---
 ----------------
 
--- 单行或多行移动
-keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv") -- Meta + j 向下移动
-keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv") -- Meta + k 向上移动
-
 -- 全选
 keymap.set("v", "<C-a>", "<ESC>ggVG")
 
 ----------------
 --- 正常模式 ---
 ----------------
-
--- 切换自动换行模式
-keymap.set("n", "<leader>nw", "<cmd>set nowrap<CR>")
-keymap.set("n", "<leader>wr", "<cmd>set wrap<CR>")
-
--- 窗口
-keymap.set("n", "<leader>sv", "<C-w>v") -- 主键 + sv 水平新增窗口
-keymap.set("n", "<leader>sh", "<C-w>s") -- 主键 + sh 垂直新增窗口
 
 -- 平滑移动
 local t    = {}
@@ -63,10 +51,6 @@ keymap.set("n", "<leader>lc", function() vim.g.cmp_enabled = not vim.g.cmp_enabl
 -- 打开文件资源管理器
 keymap.set("n", "<leader>e", "<cmd>Neotree<CR>")
 
--- 切换 buffer
-keymap.set("n", "<leader><tab>", "<cmd>bnext<CR>")
-keymap.set("n", "<leader>q", "<cmd>bprevious<CR>")
-
 -- 关闭 buffer
 keymap.set("n", "[c", "<cmd>BufferLineCloseLeft<CR>")
 keymap.set("n", "]c", "<cmd>BufferLineCloseRight<CR>")
@@ -93,9 +77,9 @@ keymap.set("n", "ti", function() require("trouble").toggle("lsp_implementations"
 keymap.set("n", "tt", "<cmd>TodoTrouble<CR>")                                          -- tt 查看光标悬停处 TODO
 
 -- lspsaga
-keymap.set("n", "<leader>h", "<cmd>Lspsaga hover_doc<CR>")    -- 在光标处显示 lspsaga hover
+keymap.set("n", "<leader>h", "<cmd>Lspsaga hover_doc<CR>") -- 在光标处显示 lspsaga hover
 
 -- 内嵌终端
 -- 主键 + ] 打开或关闭内嵌终端
-keymap.set("n", "<leader>]", "<cmd>Toggleterm<CR>")
-keymap.set("t", "<leader>]", "<cmd>Toggleterm<CR>")
+keymap.set("n", "<leader>]", "<cmd>ToggleTerm<CR>")
+keymap.set("t", "<leader>]", "<cmd>ToggleTerm<CR>")
