@@ -14,9 +14,6 @@ keymap.set("i", "jk", "<ESC>") -- esc 改为 jk
 --- 视觉模式 ---
 ----------------
 
--- 全选
-keymap.set("v", "<C-a>", "<ESC>ggVG")
-
 ----------------
 --- 正常模式 ---
 ----------------
@@ -36,17 +33,6 @@ require('neoscroll.config').set_mappings(t)
 
 -- 取消高亮
 keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
-
--- 进入视觉模式并全选
-keymap.set("n", "<C-a>", "ggVG")
-
--- 切换 inlay_hint 启用状态
-keymap.set('n', '<leader>li', function()
-	vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled(0))
-end)
-
--- 切换 nvim-cmp 补全启用状态
-keymap.set("n", "<leader>lc", function() vim.g.cmp_enabled = not vim.g.cmp_enabled end)
 
 -- 打开文件资源管理器
 keymap.set("n", "<leader>e", "<cmd>Neotree<CR>")
