@@ -17,6 +17,7 @@ return {
 				sh = { "shfmt" },
 				go = { "goimports", "gofmt" },
 				cpp = { "clang-format" },
+				markdown = { "markdownlint" },
 			},
 			-- The options you set here will be merged with the builtin formatters.
 			-- You can also define any custom formatters here.
