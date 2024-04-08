@@ -1,11 +1,12 @@
-# Personal Neovim repo
+# Personal NeoVim repo
 
-<img src="./screenshots/screenshot_linux.png"/>
-<img src="./screenshots/screenshot_macos.png"/>
+<img alt="screenshot_linux" src="./screenshots/screenshot_linux.png"/>
+<img alt="screenshot_macos" src="./screenshots/screenshot_macos.png"/>
 
 ## How to use?
 
-Clone config
+### Clone config
+
 ```bash
 cd ~/.config
 git clone https://github.com/gaogao-qwq/nvim.git
@@ -15,13 +16,11 @@ git clone https://github.com/gaogao-qwq/nvim.git
 
 > Arch Linux AUR
 
-
 ```bash
 yay -S tree-sitter
 ```
 
 > Debian or Ubuntu
-
 
 ```bash
 sudo apt install tree-sitter
@@ -33,33 +32,13 @@ sudo apt install tree-sitter
 brew install tree-sitter
 ```
 
-### (Optional)Install jdtls for java LSP support.
+### (Optional)Install jdtls for java LSP support
 
 ```bash
 just jdtls # Tested on Arch Linux & MacOS.
 ```
 
-### Install Packer for managing Neovim plugins
+### Install plugins by lazy
 
-> Arch Linux AUR
-
-```bash
-yay -S nvim-packer-git
-```
-
-> Other distro and macOS
-
-
-```bash
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
-
-Install plugins by Packer
-
-```bash
-nvim ~/.config/nvim/lua/packer-setup.lua
-```
-
-Then just type `:w` and have a nice cup of Libre-tea until Packer get all plugins.
-
+Then just open NeoVim and have a nice cup of Libre-tea until Lazy handles
+all the problems.
