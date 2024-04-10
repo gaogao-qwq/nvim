@@ -5,7 +5,11 @@ return {
 			bottom = {
 				{
 					ft = "toggleterm",
+					title = "ToggleTerm",
 					size = { height = 0.3 },
+					open = function()
+						vim.cmd([[ToggleTerm]])
+					end,
 					filter = function(buf, win)
 						return vim.api.nvim_win_get_config(win).relative == ""
 					end,
