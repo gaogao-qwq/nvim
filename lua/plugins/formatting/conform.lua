@@ -18,13 +18,16 @@ return {
 				cpp = { "clang_format" },
 				c = { "clang_format" },
 				markdown = { "markdownlint" },
+				sql = { "sql_formatter" },
 			},
 			-- The options you set here will be merged with the builtin formatters.
 			-- You can also define any custom formatters here.
 			---@type table<string, conform.FormatterConfigOverride|fun(bufnr: integer): nil|conform.FormatterConfigOverride>
 			formatters = {
 				injected = { options = { ignore_errors = true } },
-				clang_format = { prepend_args = { "-style={BasedOnStyle: Google, UseTab: Always, IndentWidth: 4, TabWidth: 4}" } },
+				clang_format = {
+					prepend_args = { "-style={BasedOnStyle: Google, UseTab: Always, IndentWidth: 4, TabWidth: 4}" },
+				},
 			},
 		}
 		return opts
