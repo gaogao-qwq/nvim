@@ -8,4 +8,5 @@ return {
 	"norcalli/nvim-colorizer.lua",
 	"nvim-orgmode/orgmode",
 	"lukas-reineke/headlines.nvim",
+	"nanotee/sqls.nvim"
 }
