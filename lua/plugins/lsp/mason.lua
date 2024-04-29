@@ -7,7 +7,6 @@ return {
 			"clang-format",
 			"asm-lsp",
 			"vue-language-server",
-			"tailwindcss-language-server",
 			"bash-language-server",
 			"shfmt",
 			"css-lsp",
