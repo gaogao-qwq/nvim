@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+vim.b.autoformat = false
+
 -- 移动 screen 时确保光标上下空间不得低于10行
 opt.scrolloff = 10
 
