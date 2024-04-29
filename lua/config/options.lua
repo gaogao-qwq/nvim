@@ -1,5 +1,6 @@
 local opt = vim.opt
 
+vim.g.autoformat = false
 vim.b.autoformat = false
 
 -- 移动 screen 时确保光标上下空间不得低于10行
