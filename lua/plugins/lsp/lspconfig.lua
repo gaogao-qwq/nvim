@@ -87,6 +87,12 @@ return {
 					clangdFileStatus = true,
 				},
 			},
+			sqls = {
+				root_dir = function(fname)
+					return require("lspconfig.util").root_pattern("sqls.yml")(fname)
+				end,
+				cmd = { "sqls", "-config", "sqls.yml" },
+			}
 		},
 		setup = {
 			clangd = function(_, opts)
