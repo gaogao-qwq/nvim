@@ -30,7 +30,6 @@ return {
 				"scss",
 				"vue",
 				"dart",
-				"org",
 				"markdown",
 				"markdown_inline",
 				"regex",
