@@ -1,5 +1,3 @@
-local a = 0
-
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
@@ -11,25 +9,8 @@ local keymap = vim.keymap
 keymap.set("i", "jk", "<ESC>") -- esc 改为 jk
 
 ----------------
---- 视觉模式 ---
-----------------
-
-----------------
 --- 正常模式 ---
 ----------------
-
--- 平滑移动
-local t    = {}
-t['K']     = { 'scroll', { '-vim.wo.scroll', 'true', '250' } }
-t['J']     = { 'scroll', { 'vim.wo.scroll', 'true', '250' } }
-t['<C-b>'] = { 'scroll', { '-vim.api.nvim_win_get_height(0)', 'true', '450' } }
-t['<C-f>'] = { 'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450' } }
-t['<C-y>'] = { 'scroll', { '-0.10', 'false', '100' } }
-t['<C-e>'] = { 'scroll', { '0.10', 'false', '100' } }
-t['zt']    = { 'zt', { '250' } }
-t['zz']    = { 'zz', { '250' } }
-t['zb']    = { 'zb', { '250' } }
-require('neoscroll.config').set_mappings(t)
 
 -- 取消高亮
 keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
