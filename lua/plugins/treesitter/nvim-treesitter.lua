@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	event = "VeryLazy",
 	opts = function()
 		if vim.loop.os_uname().sysname == "Darwin" then
 			require("nvim-treesitter.install").compilers = { "gcc-11" }

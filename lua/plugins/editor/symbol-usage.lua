@@ -1,5 +1,6 @@
 return {
 	"Wansmer/symbol-usage.nvim",
+	event = "VeryLazy",
 	opts = function()
 		local SymbolKind = vim.lsp.protocol.SymbolKind
 

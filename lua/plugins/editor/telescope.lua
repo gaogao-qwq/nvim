@@ -1,5 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
+	event = "VeryLazy",
 	opts = function()
 		require("telescope").load_extension("file_browser")
 		require("telescope").load_extension("fzf")

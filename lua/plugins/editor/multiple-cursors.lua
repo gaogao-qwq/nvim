@@ -1,5 +1,6 @@
 return {
 	"brenton-leighton/multiple-cursors.nvim",
+	event = "VeryLazy",
 	version = "*",
 	opts = {},
 	keys = {

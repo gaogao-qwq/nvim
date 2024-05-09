@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+	event = "VeryLazy",
 	init = function()
 		local keys = require("lazyvim.plugins.lsp.keymaps").get()
 		keys[#keys + 1] = { "K", false }
@@ -87,12 +88,16 @@ return {
 					clangdFileStatus = true,
 				},
 			},
+			als = {
+				root_dir = require("lspconfig.util").root_pattern("Makefile", ".git", "*.gpr", "*.adc"),
+				cmd = { "ada_language_server" },
+			},
 			sqls = {
 				root_dir = function(fname)
 					return require("lspconfig.util").root_pattern("sqls.yml")(fname)
 				end,
 				cmd = { "sqls", "-config", "sqls.yml" },
-			}
+			},
 		},
 		setup = {
 			clangd = function(_, opts)

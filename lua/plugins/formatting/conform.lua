@@ -1,5 +1,6 @@
 return {
 	"stevearc/conform.nvim",
+	event = "VeryLazy",
 	opts = function()
 		vim.g.autoformat = false
 		local opts = {

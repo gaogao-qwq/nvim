@@ -1,5 +1,6 @@
 return {
 	"kevinhwang91/nvim-ufo",
+	event = "VeryLazy",
 	dependencies = "kevinhwang91/promise-async",
 	opts = {
 		fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)

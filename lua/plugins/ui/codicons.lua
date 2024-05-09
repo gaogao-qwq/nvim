@@ -1,1 +1,4 @@
-return { "mortepau/codicons.nvim" }
+return {
+	"mortepau/codicons.nvim",
+	event = "VeryLazy",
+}
