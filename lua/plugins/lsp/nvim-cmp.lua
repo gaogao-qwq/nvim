@@ -23,8 +23,6 @@ return {
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_next_item()
-						-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-						-- they way you will only jump inside the snippet region
 					elseif luasnip.expand_or_jumpable() then
 						luasnip.expand_or_jump()
 					elseif has_words_before() then
@@ -42,13 +40,15 @@ return {
 						fallback()
 					end
 				end, { "i", "s" }),
-				["C-f"] = cmp.mapping.scroll_docs(4),
-				["C-b"] = cmp.mapping.scroll_docs(-4),
-				["C-e"] = cmp.mapping.abort(),
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<S-CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+				["<C-f>"] = cmp.mapping.scroll_docs(4),
+				["<C-b>"] = cmp.mapping.scroll_docs(-4),
+				["<C-e>"] = cmp.mapping.abort(),
 			}),
 			preselect = cmp.PreselectMode.None,
 			completion = {
-				completeopt = "menu,menuone,noinsert",
+				completeopt = "menu,menuone,noinsert,noselect",
 			},
 			window = {
 				completion = cmp.config.window.bordered(),
