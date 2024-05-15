@@ -42,6 +42,12 @@ return {
 				},
 				{ title = "Spectre", ft = "spectre_panel", size = { height = 0.3 } },
 				{ title = "Neotest Output", ft = "neotest-output-panel", size = { height = 15 } },
+				{
+					ft = "dbout",
+					title = "DBOUT",
+					size = { height = 0.3 },
+					pinned = true,
+				}
 			},
 			left = {
 				{
@@ -76,6 +82,17 @@ return {
 					open = "Neotree position=top buffers",
 				},
 				"neo-tree",
+			},
+			right = {
+				{
+					ft = "dbui",
+					title = "DBUI",
+					size = { width = 0.2 },
+					pinned = true,
+					filter = function (buf)
+						return vim.bo[buf].buftype == "nofile"
+					end,
+				}
 			},
 			keys = {
 				-- increase width
