@@ -7,8 +7,4 @@ return {
 	{ "andweeb/presence.nvim", event = "VeryLazy" },
 	{ "norcalli/nvim-colorizer.lua", event = "VeryLazy" },
 	{ "lukas-reineke/headlines.nvim", event = "VeryLazy" },
-	{ "nanotee/sqls.nvim", event = "VeryLazy" },
-	{ "tpope/vim-dadbod", event = "VeryLazy" },
-	{ "kristijanhusak/vim-dadbod-completion", event = "VeryLazy" },
-	{ "kristijanhusak/vim-dadbod-ui", event = "VeryLazy" },
 }
