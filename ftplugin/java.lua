@@ -23,7 +23,8 @@ local config = {
 		java = {
 			import = {
 				gradle = {
-					annotationProcessing = { enable = true }
+					annotationProcessing = { enabled = true },
+					wrapper = { enabled = true }
 				},
 			},
 		},
