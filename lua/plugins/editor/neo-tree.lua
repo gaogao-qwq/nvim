@@ -6,6 +6,11 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
 	},
+	opts = {
+		filesystem = {
+			follow_current_file = { enabled = false },
+		},
+	},
 	keys = {
 		{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
 	},
