@@ -31,7 +31,6 @@ return {
 					end,
 				},
 				"Trouble",
-				{ ft = "qf", title = "QuickFix" },
 				{
 					ft = "help",
 					size = { height = 20 },
@@ -46,7 +45,6 @@ return {
 					ft = "dbout",
 					title = "DBOUT",
 					size = { height = 0.3 },
-					pinned = true,
 				}
 			},
 			left = {
