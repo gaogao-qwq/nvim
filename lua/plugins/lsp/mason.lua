@@ -3,6 +3,7 @@ return {
 	event = "VeryLazy",
 	opts = {
 		ensure_installed = {
+			"ada-language-server",
 			"lua-language-server",
 			"clangd",
 			"clang-format",
