@@ -8,6 +8,16 @@ local keymap = vim.keymap
 
 keymap.set("i", "jk", "<ESC>") -- esc 改为 jk
 
+-- Emacs 风格光标移动
+keymap.set("i", "<C-p>", "<Up>")
+keymap.set("i", "<C-f>", "<Right>")
+keymap.set("i", "<C-n>", "<Down>")
+keymap.set("i", "<C-b>", "<Left>")
+keymap.set("i", "<M-b>", "<C-Left>")
+keymap.set("i", "<M-f>", "<C-Right>")
+keymap.set("i", "<C-a>", "<Home>")
+keymap.set("i", "<C-e>", "<End>")
+
 ----------------
 --- 正常模式 ---
 ----------------
