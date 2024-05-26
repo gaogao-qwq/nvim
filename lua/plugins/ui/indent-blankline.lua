@@ -27,6 +27,7 @@ return {
 			vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
 			vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
 		end)
+		vim.g.rainbow_delimiters = { highlight = highlight }
 		hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
 		return {
@@ -36,7 +37,7 @@ return {
 			},
 			scope = {
 				enabled = true,
-				highlight = highlight
+				highlight = highlight,
 			},
 			exclude = {
 				filetypes = {
