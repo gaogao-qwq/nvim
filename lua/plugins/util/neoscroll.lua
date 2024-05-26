@@ -3,21 +3,22 @@ return {
 	event = "VeryLazy",
 	opts = {
 		easing_function = "quadratic",
-		performance_mode = true,
+		performance_mode = false,
 		hide_cursor = false,
 	},
+	-- stylua: ignore
 	config = function()
-		require("neoscroll").setup()
-		require("neoscroll.config").set_mappings({
-			["K"] = { "scroll", { "-vim.wo.scroll", "true", "250" } },
-			["J"] = { "scroll", { "vim.wo.scroll", "true", "250" } },
-			["<C-b>"] = { "scroll", { "-vim.api.nvim_win_get_height(0)", "true", "450" } },
-			["<C-f>"] = { "scroll", { "vim.api.nvim_win_get_height(0)", "true", "450" } },
-			["<C-y>"] = { "scroll", { "-0.10", "false", "100" } },
-			["<C-e>"] = { "scroll", { "0.10", "false", "100" } },
-			["zt"] = { "zt", { "250" } },
-			["zz"] = { "zz", { "250" } },
-			["zb"] = { "zb", { "250" } },
-		})
+		local neoscroll = require('neoscroll')
+		local nc = require('neoscroll.config')
+		local keymap = {
+			["K"]     = function() neoscroll.ctrl_u({ duration = 250 }) end;
+			["J"]     = function() neoscroll.ctrl_d({ duration = 250 }) end;
+			["<C-y>"] = function() neoscroll.scroll(-0.1, { move_cursor = false; duration = 100 }) end;
+			["<C-e>"] = function() neoscroll.scroll(0.1, { move_cursor = false; duration = 100 }) end;
+		}
+		local modes = { 'n', 'v', 'x' }
+		for key, func in pairs(keymap) do
+			vim.keymap.set(modes, key, func)
+		end
 	end,
 }
