@@ -9,7 +9,6 @@ return {
 	-- stylua: ignore
 	config = function()
 		local neoscroll = require('neoscroll')
-		local nc = require('neoscroll.config')
 		local keymap = {
 			["K"]     = function() neoscroll.ctrl_u({ duration = 250 }) end;
 			["J"]     = function() neoscroll.ctrl_d({ duration = 250 }) end;
