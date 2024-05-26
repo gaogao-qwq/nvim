@@ -1,11 +1,6 @@
 return {
 	"karb94/neoscroll.nvim",
 	event = "VeryLazy",
-	opts = {
-		easing_function = "quadratic",
-		performance_mode = false,
-		hide_cursor = false,
-	},
 	-- stylua: ignore
 	config = function()
 		local neoscroll = require('neoscroll')
@@ -19,5 +14,11 @@ return {
 		for key, func in pairs(keymap) do
 			vim.keymap.set(modes, key, func)
 		end
+		local opts = {
+			easing_function = "quadratic",
+			performance_mode = false,
+			hide_cursor = false,
+		}
+		neoscroll.setup(opts)
 	end,
 }
