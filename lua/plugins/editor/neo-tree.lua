@@ -8,10 +8,7 @@ return {
 	},
 	opts = {
 		filesystem = {
-			follow_current_file = {
-				enabled = true,
-				leave_dirs_open = true,
-			},
+			follow_current_file = { enabled = false },
 		},
 	},
 	keys = {
