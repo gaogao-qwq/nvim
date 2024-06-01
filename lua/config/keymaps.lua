@@ -25,9 +25,6 @@ keymap.set("i", "<C-e>", "<End>")
 -- 取消高亮
 keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
 
--- 打开文件资源管理器
-keymap.set("n", "<leader>e", "<cmd>Neotree<CR>")
-
 -- 关闭 buffer
 keymap.set("n", "[c", "<cmd>BufferLineCloseLeft<CR>")
 keymap.set("n", "]c", "<cmd>BufferLineCloseRight<CR>")
