@@ -36,6 +36,7 @@ return {
 				"regex",
 				"sql",
 			},
+			ignore_installed = { "org" },
 			highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = { "org" },
