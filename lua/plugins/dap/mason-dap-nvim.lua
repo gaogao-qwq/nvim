@@ -3,6 +3,8 @@ return {
 	opts = {
 		automatic_installation = true,
 		handlers = {},
-		ensure_installed = {},
+		ensure_installed = {
+			"js-debug-adapter"
+		},
 	},
 }
