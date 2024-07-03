@@ -25,10 +25,6 @@ keymap.set("i", "<C-e>", "<End>")
 -- 取消高亮
 keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
 
--- 关闭 buffer
-keymap.set("n", "[c", "<cmd>BufferLineCloseLeft<CR>")
-keymap.set("n", "]c", "<cmd>BufferLineCloseRight<CR>")
-
 -- telescope
 local telescope = require('telescope.builtin')
 keymap.set('n', '<leader>ff', telescope.find_files, {}) -- 主键 + ff 查找文件
