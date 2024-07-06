@@ -121,6 +121,9 @@ all the problems.
 ### programming-languages-support
 
 + [akinsho/flutter-tools.nvim](https://dotfyle.com/plugins/akinsho/flutter-tools.nvim)
+### scrollbar
+
++ [petertriho/nvim-scrollbar](https://dotfyle.com/plugins/petertriho/nvim-scrollbar)
 ### scrolling
 
 + [karb94/neoscroll.nvim](https://dotfyle.com/plugins/karb94/neoscroll.nvim)
@@ -145,6 +148,7 @@ all the problems.
 ### tabline
 
 + [akinsho/bufferline.nvim](https://dotfyle.com/plugins/akinsho/bufferline.nvim)
++ [romgrk/barbar.nvim](https://dotfyle.com/plugins/romgrk/barbar.nvim)
 ### terminal-integration
 
 + [akinsho/toggleterm.nvim](https://dotfyle.com/plugins/akinsho/toggleterm.nvim)
