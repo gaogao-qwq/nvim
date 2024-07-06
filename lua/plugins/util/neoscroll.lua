@@ -15,8 +15,6 @@ return {
 			vim.keymap.set(modes, key, func)
 		end
 		local opts = {
-			easing_function = "quadratic",
-			performance_mode = false,
 			hide_cursor = false,
 		}
 		neoscroll.setup(opts)
