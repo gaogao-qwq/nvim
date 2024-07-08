@@ -7,7 +7,13 @@ return {
 	end,
 	keys = {
 		-- stylua: ignore
-		{"<leader>xf", function () vim.diagnostic.open_float() end, desc = "Open float diagnostics panel"},
+		{"<leader>h", function() vim.lsp.buf.hover() end, desc = "Open lsp hover"},
+		{
+			"<leader>xf",
+			-- stylua: ignore
+			function() vim.diagnostic.open_float({ border = "rounded" }) end,
+			desc = "Open float diagnostics panel",
+		},
 	},
 	opts = {
 		autoformat = false,

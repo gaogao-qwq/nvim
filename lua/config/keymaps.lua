@@ -46,8 +46,6 @@ keymap.set("n", "td", function() require("trouble").toggle("lsp_definitions") en
 keymap.set("n", "ti", function() require("trouble").toggle("lsp_implementations") end) -- ti 查看光标悬停处实现
 keymap.set("n", "tt", "<cmd>TodoTrouble<CR>")                                          -- tt 查看光标悬停处 TODO
 
-keymap.set("n", "<leader>h", function() vim.lsp.buf.hover() end)
-
 -- 内嵌终端
 -- 主键 + ] 打开或关闭内嵌终端
 keymap.set("n", "<leader>]", "<cmd>ToggleTerm<CR>")
