@@ -5,16 +5,16 @@ return {
 		local keys = require("lazyvim.plugins.lsp.keymaps").get()
 		keys[#keys + 1] = { "K", false }
 	end,
+	keys = {
+		-- stylua: ignore
+		{"<leader>xf", function () vim.diagnostic.open_float() end, desc = "Open float diagnostics panel"},
+	},
 	opts = {
 		autoformat = false,
 		diagnostics = {
 			underline = true,
-			update_in_insert = false,
-			virtual_text = {
-				spacing = 4,
-				source = "if_many",
-				prefix = "icons",
-			},
+			update_in_insert = true,
+			virtual_text = false,
 			severity_sort = true,
 			signs = {
 				text = {
