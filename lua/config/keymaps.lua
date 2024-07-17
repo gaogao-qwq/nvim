@@ -39,14 +39,3 @@ keymap.set(                                             -- 主键 + fb 从当前
 	"<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
 	{}
 )
-
--- trouble
-keymap.set("n", "tr", function() require("trouble").toggle("lsp_references") end)      -- tr 查看光标悬停处引用
-keymap.set("n", "td", function() require("trouble").toggle("lsp_definitions") end)     -- td 查看光标悬停处定义
-keymap.set("n", "ti", function() require("trouble").toggle("lsp_implementations") end) -- ti 查看光标悬停处实现
-keymap.set("n", "tt", "<cmd>TodoTrouble<CR>")                                          -- tt 查看光标悬停处 TODO
-
--- 内嵌终端
--- 主键 + ] 打开或关闭内嵌终端
-keymap.set("n", "<leader>]", "<cmd>ToggleTerm<CR>")
-keymap.set("t", "<leader>]", "<cmd>ToggleTerm<CR>")
