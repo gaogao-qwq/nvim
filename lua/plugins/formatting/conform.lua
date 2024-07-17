@@ -26,9 +26,6 @@ return {
 			---@type table<string, conform.FormatterConfigOverride|fun(bufnr: integer): nil|conform.FormatterConfigOverride>
 			formatters = {
 				injected = { options = { ignore_errors = true } },
-				clang_format = {
-					prepend_args = { "-style={BasedOnStyle: Google, UseTab: Always, IndentWidth: 4, TabWidth: 4}" },
-				},
 			},
 		}
 		return opts
