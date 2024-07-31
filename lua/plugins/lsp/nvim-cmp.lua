@@ -69,21 +69,21 @@ return {
 				}),
 			},
 			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
+				expand = function(item)
+					return LazyVim.cmp.expand(item.body)
 				end,
 			},
-			sources = cmp.config.sources({
+			sources = {
+				{ name = "snippets" },
 				{ name = "calc" },
 				{ name = "orgmode" },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "path" },
-				{ name = "vim-dadbod-completion"},
-			}, {
+				{ name = "vim-dadbod-completion" },
 				{ name = "buffer" },
-			}),
-			sorting = defaults.sorting
+			},
+			sorting = defaults.sorting,
 		}
 	end,
 }

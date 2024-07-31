@@ -1,0 +1,1126 @@
+{
+
+    "GetFirebaseLoginSocialGoogle Snippet": {
+        "prefix": "getfirebaseLoginSocialGoogle",
+        "body": [
+            "//google_sign_in: ^4.5.1 ",
+
+            "Future<UserCredential> signInWithGoogle() async {",
+            "\t// Trigger the authentication flow",
+            "\tfinal GoogleSignInAccount googleUser = await GoogleSignIn().signIn();",
+            "",
+            "\t// Obtain the auth details from the request",
+            "\tfinal GoogleSignInAuthentication googleAuth = await googleUser.authentication;",
+            "",
+            "\t// Create a new credential",
+            "\tfinal GoogleAuthCredential credential = GoogleAuthProvider.credential(",
+                "\t\taccessToken: googleAuth.accessToken,",
+                "\t\tidToken: googleAuth.idToken,",
+            "\t);",
+            "\t// Once signed in, return the UserCredential",
+            "\treturn await FirebaseAuth.instance.signInWithCredential(credential);",
+            "}"
+        ],
+        "description": "Once installed, trigger the sign-in flow and create a new credential:"
+    },
+
+    "GetFirebaseLoginSocialFacebook Snippet": {
+        "prefix": "getfirebaseLoginSocialFacebook",
+        "body": [
+            "//flutter_facebook_auth: ^1.0.0",
+            "",
+            "Future<UserCredential> signInWithFacebook() async {",
+            "\t// Trigger the sign-in flow",
+            "\tfinal LoginResult result = await FacebookAuth.instance.login();",
+            "",
+            "\t// Create a credential from the access token",
+            "\tfinal FacebookAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(result.accessToken.token);",
+            "",
+            "\t// Once signed in, return the UserCredential",
+            "\treturn await FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);",
+            "}"
+        ],
+        "description": "Before getting started setup your Facebook Developer App and follow the setup process to enable Facebook Login.Ensure the Facebook sign-in provider is enabled on the Firebase Console. with the Facebook App ID and Secret set."
+    },
+
+    "GetFirebaseLoginSocialApple Snippet": {
+        "prefix": "getfirebaseLoginSocialApple",
+        "body": [
+            "//sign_in_with_apple: ^2.5.2",
+            "//crypto: ^2.1.5",
+            "/// Generates a cryptographically secure random nonce, to be included in a",
+            "/// credential request.",
+            "String generateNonce([int length = 32]) {",
+            "\tfinal charset = '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._';",
+            "\tfinal random = Random.secure();",
+            "\treturn List.generate(length, (_) => charset[random.nextInt(charset.length)])",
+            ".join();",
+            "}",
+            "/// Returns the sha256 hash of [input] in hex notation.",
+            "String sha256ofString(String input) {",
+            "\tfinal bytes = utf8.encode(input);",
+            "\tfinal digest = sha256.convert(bytes);",
+            "\treturn digest.toString();",
+            "}",
+            "",
+            "Future<UserCredential> signInWithApple() async {",
+            "\t// To prevent replay attacks with the credential returned from Apple, we",
+            "\t// include a nonce in the credential request. When signing in in with",
+            "\t// Firebase, the nonce in the id token returned by Apple, is expected to",
+            "\t// match the sha256 hash of `rawNonce`.",
+            "\tfinal rawNonce = generateNonce();",
+            "\tfinal nonce = sha256ofString(rawNonce);",
+            "",
+            "\t// Request credential for the currently signed in Apple account.",
+            "\tfinal appleCredential = await SignInWithApple.getAppleIDCredential(",
+            "\tscopes: [",
+            "\t\tAppleIDAuthorizationScopes.email,",
+            "\t\tAppleIDAuthorizationScopes.fullName,",
+            "\t],",
+            "\tnonce: nonce,",
+            "\t);",
+            "",
+            "\t// Create an `OAuthCredential` from the credential returned by Apple.",
+            "\tfinal oauthCredential = OAuthProvider('apple.com').credential(",
+            "\t\tidToken: appleCredential.identityToken,",
+            "\t\trawNonce: rawNonce,",
+            "\t);",
+            "",
+            "\t// Sign in the user with Firebase. If the nonce we generated earlier does",
+            "\t// not match the nonce in `appleCredential.identityToken`, sign in will fail.",
+            "\treturn await FirebaseAuth.instance.signInWithCredential(oauthCredential);",
+            "}"
+        ],
+        "description": "Before you begin configure Sign In with Apple and enable Apple as a sign-in provider. Next, make sure that your Runner apps have the 'Sign in with Apple' capability.Install the sign_in_with_apple plugin, as well as the crypto package:"
+    },
+    "GetFirebaseLoginSocialTwitter Snippet": {
+        "prefix": "getfirebaseLoginSocialTwitter",
+        "body": [
+            "//flutter_twitter_login: ^1.1.0",
+            "Future<UserCredential> signInWithTwitter() async {",
+            "\t// Create a TwitterLogin instance",
+            "\tfinal TwitterLogin twitterLogin = new TwitterLogin(",
+            "\t\tconsumerKey: '<your consumer key>',",
+            "\t\tconsumerSecret:' <your consumer secret>',",
+            "\t);",
+            "",
+            "\t// Trigger the sign-in flow",
+            "\tfinal TwitterLoginResult loginResult = await twitterLogin.authorize();",
+            "",
+            "\t// Get the Logged In session",
+            "\tfinal TwitterSession twitterSession = loginResult.session;",
+            "",
+            "\t// Create a credential from the access token",
+            "\tfinal AuthCredential twitterAuthCredential = TwitterAuthProvider.credential(accessToken: twitterSession.token, secret: twitterSession.secret);",
+            "",
+            "\t// Once signed in, return the UserCredential",
+            "\treturn await FirebaseAuth.instance.signInWithCredential(twitterAuthCredential);",
+            "}"
+        ],
+        "description": "Ensure the 'Twitter' sign-in provider is enabled on the Firebase Console with an API Key and API Secret set."
+    },
+    "GetFirebaseLoginSocialGithub Snippet": {
+        "prefix": "getfirebaseLoginSocialGithub",
+        "body": [
+            "//  github_sign_in: ^0.0.1",
+            "Future<UserCredential> signInWithGitHub() async {",
+            "\t// Create a GitHubSignIn instance",
+            "\tfinal GitHubSignIn gitHubSignIn = GitHubSignIn(",
+            "\t\tclientId: clientId,",
+            "\t\tclientSecret: clientSecret,",
+            "\t\tredirectUrl: 'https://my-project.firebaseapp.com/__/auth/handler');",
+            "",
+            "\t// Trigger the sign-in flow",
+            "\tfinal result = await gitHubSignIn.signIn(context);",
+            "",
+            "\t// Create a credential from the access token",
+            "\tfinal AuthCredential githubAuthCredential = GithubAuthProvider.credential(result.token);",
+            "",
+            "\t// Once signed in, return the UserCredential",
+            "\treturn await FirebaseAuth.instance.signInWithCredential(githubAuthCredential);",
+            "}"
+        ],
+        "description": "Ensure that you have setup an OAuth App from your GitHub Developer Settings and that the 'GitHub' sign-in provider is enabled on the Firebase Console with the Client ID and Secret are set, with the callback URL set in the GitHub app."
+    },
+    "GetFirebaseRegistrationEmailAndPassword Snippet": {
+        "prefix": "getfirebaseRegistrationEmailAndPassword",
+        "body": [
+            "try {",
+            "\tUserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(",
+            "\t\temail: 'barry.allen@example.com',",
+            "\t\tpassword: 'SuperSecretPassword!'",
+            "\t);",
+            "} on FirebaseAuthException catch (e) {",
+            "\tif (e.code == 'weak-password') {",
+            "\tprint('The password provided is too weak.');",
+            "\t} else if (e.code == 'email-already-in-use') {",
+            "\tprint('The account already exists for that email.');",
+            "\t}",
+            "} catch (e) {",
+            "\tprint(e);",
+            "}"
+        ],
+        "description": "To create a new account on your Firebase project call the createUserWithEmailAndPassword() method with the user's email address and password:"
+    },
+
+    "GetFirebaseLoginEmailAndPassword Snippet": {
+        "prefix": "getfirebaseLoginEmailAndPassword",
+        "body": [
+            "try {",
+            "\tUserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(",
+            "\t\temail: 'barry.allen@example.com',",
+            "\t\tpassword: 'SuperSecretPassword!'",
+            "\t);",
+            "} on FirebaseAuthException catch (e) {",
+            "\tif (e.code == 'user-not-found') {",
+            "\tprint('No user found for that email.');",
+            "\t} else if (e.code == 'wrong-password') {",
+            "\tprint('Wrong password provided for that user.');",
+            "\t}",
+            "}"
+        ],
+        "description": "To sign-in to an existing account, call the signInWithEmailAndPassword() method:"
+    },
+    "GetFirebaseVerifyExistsEmail Snippet": {
+        "prefix": "getfirebaseVerifyExistsEmail",
+        "body": [
+            "User user = FirebaseAuth.instance.currentUser;",
+            "if (!user.emailVerified) {",
+            "\tawait user.sendEmailVerification();",
+            "}"
+        ],
+        "description": "The User class provides a sendEmailVerification() method and emailVerified property which you can use to handle this scenario."
+    },
+
+    "GetFirebaseDeleteUser Snippet": {
+        "prefix": "getfirebaseDeleteUser",
+        "body": [
+            "try {",
+            "\tawait FirebaseAuth.instance.currentUser.delete();",
+            "} catch on FirebaseAuthException (e) {",
+            "\tif (e.code == 'requires-recent-login') {",
+            "\tprint('The user must reauthenticate before this operation can be executed.');",
+            "\t}",
+            "}"
+        ],
+        "description": "If your user wishes to delete their account from your project, this can be archived with the delete() method. Since this is a security-sensitive operation, it requires that user must have recently signed-in"
+    },
+
+    "GetFirebaseCurrentUser Snippet": {
+        "prefix": "getfirebaseCurrentUser",
+        "body": [
+            "FirebaseAuth auth = FirebaseAuth.instance;",
+            "if (auth.currentUser != null) {",
+            "\tprint(auth.currentUser.uid);",
+            "}"
+        ],
+        "description": "To sign a user out, call the signOut() method, if you are listening to changes in authentication state, a new event will be sent to your listeners."
+    },
+
+    "GetFirebaseReauthenticateUser Snippet": {
+        "prefix": "getfirebaseReauthenticateUser",
+        "body": [
+            "String email = 'barry.allen@example.com';",
+            "String password = 'SuperSecretPassword!';",            
+            "//Create a credential",
+            "EmailAuthCredential credential = EmailAuthProvider.credential(email: email, password: password);",
+            "//Reauthenticate",
+            "await FirebaseAuth.instance.currentUser.reauthenticateWithCredential(credential);"
+        ],
+        "description": " Rather than signing the user out and back in again, the reauthenticateWithCredential() method can be called. If a recent login is required, create a new AuthCredential and pass it to the method. For example, to reauthenticate with email & password, create a new EmailAuthCredential:"
+    },
+    "GetFirebaseInstance Snippet": {
+        "prefix": "getfirebaseInstance",
+        "body": [
+            "FirebaseAuth auth = FirebaseAuth.instance;"
+        ],
+        "description": "To create a new Firebase Auth instance, call the instance getter on FirebaseAuth:"
+    },
+    "GetFirebaseSignOut Snippet": {
+        "prefix": "getfirebaseSignOut",
+        "body": [
+            "await FirebaseAuth.instance.signOut();"
+        ],
+        "description": "To sign a user out, call the signOut() method, if you are listening to changes in authentication state, a new event will be sent to your listeners."
+    },
+
+    "GetFirebaseAnonymousLogin Snippet": {
+        "prefix": "getfirebaseLoginAnonymous",
+        "body": [
+            "UserCredential userCredential = await FirebaseAuth.instance.signInAnonymously();"
+        ],
+        "description": "To get started, call the signInAnonymously() method on the FirebaseAuth instance"
+    },
+    "GetFirebaseAuthState Snippet": {
+        "prefix": "getfirebaseAuthState",
+        "body": [
+            
+            "FirebaseAuth.instance",
+            ".authStateChanges()",
+            ".listen((User user) { ",
+            "if ( user == null ) {",
+            "\tprint ( 'User is currently signed out!' ) ;",
+            "} else {",
+            "\tprint ( ''User is signed in!' ) ;",
+            "\t}",
+            "});"
+        ],
+        "description": "To subscribe to these changes, call the authStateChanges() method on your FirebaseAuth instance"
+    },
+
+    "GetFirebaseSendEmailVerification Snippet": {
+        "prefix": "getfirebaseSendEmailVerification",
+        "body": [
+            "User user = FirebaseAuth.instance.currentUser;",
+            "if (!user.emailVerified) {",
+            "\tvar actionCodeSettings = ActionCodeSettings(",
+            "\turl: 'https://www.example.com/?email=${user.email}',",
+            "\tdynamicLinkDomain: 'example.page.link',",
+            "\tandroid: {",
+            "\t'packageName': 'com.example.android',",
+            "\t'installApp': true,",
+            "\t'minimumVersion': '12'",
+            "},",
+            "\tiOS: {'bundleId': 'com.example.ios'},",
+            "\thandleCodeInApp: true);",
+            "\tawait user.sendEmailVerification(actionCodeSettings);",
+            "}"
+        ],
+        "description": "You can pass state via a continue URL when sending email actions for verifying a user's email.This provides the user the ability to go back to the app after the action is completed. In addition, you can specify whether to handle the email action link directly from a mobile application when it is installed instead of a web page."
+    },
+
+    "GetFirebaseEmailVerification Snippet": {
+        "prefix": "getfirebaseEmailVerification",
+        "body": [
+            "FirebaseAuth auth = FirebaseAuth.instance;",
+
+            "//Get actionCode from the dynamicLink",
+            "final Uri deepLink = dynamicLink?.link;",
+            "var actionCode = deepLink.queryParameters['oobCode'];",
+            "",
+            "try {",
+            "\tawait auth.checkActionCode(actionCode);",
+            "\tawait auth.applyActionCode(actionCode);",
+            "",
+            "\t// If successful, reload the user:",
+            "\tauth.currentUser.reload();",
+            "} on FirebaseAuthException catch (e) {",
+            "\tif (e.code == 'invalid-action-code') {",
+            "\tprint('The code is invalid.');",
+            "\t}",
+            "}"
+        ],
+        "description": "The code then can be received in app by parsing the Firebase Dynamic Link. Refer - Handling email actions in a mobile application to know how to handle the link in app. You can use firebase_dynamic_links flutter package to get the oobCode from the link and apply actionCode as follow."
+    },
+
+
+
+
+
+    "GetController Snippet": {
+        "prefix": "getcontroller",
+        "body": [
+            "import 'package:get/get.dart';",
+            "",
+            "class ${1:My}Controller extends GetxController {",
+            "",
+            "final ${1:My}Repository repository;",
+            "$1Controller(this.repository);",
+            "",
+            "\tfinal${3:obj} = ''.obs;",
+            "}"
+        ],
+        "description": "Generate GetController."
+    },
+    "GetVoidController Snippet": {
+        "prefix": "getcontrollervoid",
+        "body": [
+            "import 'package:get/get.dart';",
+            "",
+            "class ${1:My}Controller extends GetxController {",
+            "",
+            "}"
+        ],
+        "description": "Generate void GetController."
+    },
+    "GetTickerProviderController Snippet": {
+        "prefix": "getcontrollerwithSingleGetTickerProviderMixin",
+        "body": [
+            "import 'package:get/get.dart';",
+            "",
+            "class ${1:My}Controller extends GetxController with SingleGetTickerProviderMixin {",
+            "",
+            "}"
+        ],
+        "description": "Generate void GetController with SingleGetTickerProviderMixin."
+    },
+    "Get RxTypes": {
+        "prefix": "rx",
+        "body":[
+         "Rx<${1:Type}> ${2:obj} = Rx<${1:Type}>();"
+        ]
+    },
+    "Get RxBool": {
+        "prefix": "bool",
+        "body":[
+         "Rx<bool> ${1:obj} = Rx<bool>();"
+        ]
+    },
+    "Get RxDouble": {
+        "prefix": "double",
+        "body":[
+         "Rx<Double> ${1:obj} = Rx<double>();"
+        ]
+    },
+    "Get RxInt": {
+        "prefix": "int",
+        "body":[
+         "Rx<Int> ${1:obj} = Rx<Int>();"
+        ]
+    },
+    "Get RListxTypes": {
+        "prefix": "getrxlist",
+        "body":[
+         "RxList<Rx<${1:Type}>> ${2:obj} = RxList<Rx<${1:Type}>>();"
+        ]
+    },
+    "GetController With State Mixin Snippet": {
+        "prefix": "getcontrollerstatemixin",
+        "body": [
+            "import 'package:get/get.dart';",
+            "",
+            "class ${1:My}Controller extends GetxController with StateMixin<${2:Type}>{",
+            "final repository;",
+            "@override",
+            "void onInit() {",
+            "\tthis.repository.getData().then((resp) {",
+            "\t\tchange(resp, status: RxStatus.success());",
+            "\t}, onError: (err) {",
+            "\t\tprint(err);",
+            "\tchange(",
+            "\t\tnull,",
+            "\t\tstatus: RxStatus.error('Error get data'),",
+            "\t);",
+            "\tsuper.onInit();",
+            "\t});",
+            "}",
+            "",
+            "}"
+        ],
+        "description": "Generate GetController with statemixin and oninit."
+    },
+    "GetService Snippet": {
+        "prefix": "getservice",
+        "body": [
+            "import 'package:get/get.dart';",
+            "",
+            "class ${1:My}Service extends GetxService {",
+            "\tFuture<${1:My}Service> init() async {",
+                "\t\treturn this;",
+            "\t}",
+            "",
+            "}"
+        ],
+        "description": "Generate void GetController."
+    },
+    "GetBindings Snippet": {
+        "prefix": "getbinding",
+        "body": [
+            "import 'package:get/get.dart';",
+            "",
+            "class ${1:MyPage}Binding implements Bindings {",
+            "@override",
+            "void dependencies() {",
+            "\tGet.lazyPut<$1Controller>(() => $1Controller(",
+            "\t\t $1Repository(${3:MyApi}())));",
+            "\t}",
+            "}"
+        ],
+        "description": "Generate a Binding class."
+    },
+    "GetTheme Snippet": {
+        "prefix": "gettheme",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "final ThemeData appThemeData = ThemeData(",
+            "\tprimaryColor: Colors.blueAccent,",
+            "\taccentColor: Colors.blue,",
+            "\tfontFamily: 'Georgia',",
+            "\ttextTheme: TextTheme(",
+            "\t\theadline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),",
+            "\t),",
+            ");"
+        ],
+        "description": "Generate var theme."
+    },
+    "GetRoutingPages Snippet": {
+        "prefix": "getpagesroutes",
+        "body": [
+            "import 'package:get/get.dart';",
+            "part './app_routes.dart';",
+            "",
+            "abstract class AppPages {",
+            "",
+            "\tstatic final pages = [",
+            "\t\tGetPage(name: Routes.HOME, page:()=> MyHomePage(),)",
+            "\t];",
+            "}"
+        ],
+        "description": "Generate file pages."
+    },
+    "GetRoutingPage Snippet": {
+        "prefix": "getpageroute",
+        "body": [
+            "GetPage(name: Routes.${1:CONST_ROUTE}, page:()=> ${2:My}Page()),"
+        ],
+        "description": "Generate routes pages."
+    },
+    "GetRoutesFile Snippet": {
+        "prefix": "getroutes",
+        "body": [
+            "part of './app_pages.dart';",
+            "abstract class Routes{",
+            "",
+            "\tstatic const INITIAL = '/';",
+            "\tstatic const HOME = '/home';",
+            "\tstatic const LOGIN = '/login';",
+            "\tstatic const CADASTRO = '/cadastro';",
+            "}"
+        ],
+        "description": "Generate file routes."
+    },
+    "GetValueBuilder Snippet": {
+        "prefix": "getvaluebuilder",
+        "body": [
+            "ValueBuilder<bool>(",
+            "\tinitialValue: false,",
+            "\tbuilder: (value, updateFn) => Switch(",
+            "\t\tvalue: value,",
+            "\t\tonChanged: updateFn, // same signature! you could use ( newValue ) => updateFn( newValue )",
+            "\t),",
+            "// if you need to call something outside the builder method.",
+            "\tonUpdate: (value) => print('Value updated: $value'),",
+            "\tonDispose: () => print('Widget unmounted'),",
+            "),"
+        ],
+        "description": "Generate ValueBuilder."
+    },
+    "GetObxValue Snippet": {
+        "prefix": "getobxvalue",
+        "body": [
+        "ObxValue((data) => Switch(",
+        "\tvalue: data.value,",
+        "onChanged: data, // Rx has a _callable_ function! You could use (flag) => data.value = flag,",
+        "\t),",
+        "\tfalse.obs,",
+        "),"
+        ],
+        "description": "Generate ValueBuilder."
+    },
+    "GetRoute Snippet": {
+        "prefix": "getroute",
+        "body": [
+            "\tstatic const ${1:MYROUTE} = '/${2:caminho-rota}';"
+        ],
+        "description": "Generate file routes."
+    },
+    "GetArgs Snippet": {
+        "prefix": "getargs",
+        "body": [
+            "Get.arguments${1:['']};"
+        ],
+        "description": "Generate Get.arguments['']."
+    },
+    "GetPageView Snippet": {
+        "prefix": "getpage",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "import 'package:get/get.dart';",
+            
+            "",
+            "class ${1:My}Page extends GetView<$1Controller> {",
+            "",
+            "\t@override",
+            "\tWidget build(BuildContext context) {",
+            "",
+            "\t\treturn Scaffold(",
+            "\t\tappBar: AppBar(title: Text('$1Page')),",
+            "",
+            "\t\tbody: SafeArea(",
+            "\t\t\tchild: Text('${1:My}Controller'))",
+            "\t\t);",
+            "\t}",
+            "}"
+        ],
+        "description": "Generate Page."
+    },
+    "GetPageView with StateMixin Snippet": {
+        "prefix": "getpagestatemixin",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "import 'package:get/get.dart';",
+            
+            "",
+            "class ${1:My}Page extends GetView<$1Controller> {",
+            "",
+            "\t@override",
+            "\tWidget build(BuildContext context) {",
+            "",
+            "\t\treturn Scaffold(",
+            "\t\tappBar: AppBar(title: Text('$1Page')),",
+            "",
+            "\t\tbody: this.controller.obx(",
+            "\t\t\tSafeArea(",
+            "\t\t\tchild: Text(state.toString()))",
+            "\t\t);",
+            "}"
+        ],
+        "description": "Generate Page with state mixin."
+    },
+    "GetPageVoid Snippet": {
+        "prefix": "getpagevoid",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "import 'package:get/get.dart';",
+            "",
+            "class ${1:My}Page extends StatelessWidget {",
+            "",
+            "\t@override",
+            "\tWidget build(BuildContext context) {",
+            "",
+            "\t\treturn Scaffold(",
+            "\t\tappBar: AppBar(title: Text('$1Page')),",
+            "",
+            "\t\tbody: ${3:Container}(",
+            "\t\t\tchild: ",
+            "\t\t\t),",
+            "\t\t);",
+            "\t}",
+            "}"
+        ],
+        "description": "Generate Page void."
+    },
+    "GetX Snippet": {
+        "prefix": "getx",
+        "body": [
+            "GetX<${1:My}Controller>(",
+            "\tinit: ${1:My}Controller(),",
+            "\tbuilder: (_) => Text(_.var),",
+            "",
+            ")"
+        ],
+        "description": "Generate simple GetX Widget."
+    },
+    "GetRxModel Snippet": {
+        "prefix": "getrxmodel",
+        "body": [
+            "import 'package:get/get.dart';",
+            "class Rx${1:My}Model {",
+            "",
+            "\tfinal id = 0.obs;",
+            "\tfinal nome = 'nome'.obs;",
+            "}",
+            "class ${1:My}Model {",
+            "\t$1Model({ id, nome });",
+            "",
+            "final rx = Rx${1:My}Model();",
+            "",
+            "get nome => rx.nome.value;",
+            "set nome(value) => rx.nome.value = value;",
+            "",
+            "get id => rx.id.value;",
+            "set id(value) => rx.id.value = value;",
+            "",
+            "\t$1Model.fromJson(Map<String, dynamic> json){",
+            "\t\t\tthis.id = json['id'];",
+            "\t\t\tthis.nome = json['nome'];",
+            "\t}",
+            "",
+            "\tMap<String, dynamic> toJson(){",
+            "\t\tfinal Map<String, dynamic> data = new Map<String, dynamic>();",
+            "\t\tdata['nome'] = this.nome;",
+            "\t\treturn data;",
+            "\t}",
+            "}"
+        ],
+        "description": "Generate RxModel and Model."
+    },
+    "GetModel Snippet": {
+        "prefix": "getmodel",
+        "body": [
+            "class ${1:My}Model {",
+            "",
+            "\tint id;",
+            "\tString name;",
+            "",
+            "\t$1Model({ this.id, this.name });",
+            "",
+            "\t$1Model.fromJson(Map<String, dynamic> json){",
+            "\t\t\tthis.id = json['id'];",
+            "\t\t\tthis.name = json['name'];",
+            "\t}",
+            "",
+            "\tMap<String, dynamic> toJson(){",
+            "\t\tfinal Map<String, dynamic> data = new Map<String, dynamic>();",
+            "\t\tdata['name'] = this.name;",
+            "\t\treturn data;",
+            "\t}",
+            "}"
+        ],
+        "description": "Generate file Model."
+    },
+    "GetProvider Snippet": {
+        "prefix": "getprovider",
+        "body": [
+            "import 'dart:convert';",
+            "",
+            "const baseUrl = 'http://gerador-nomes.herokuapp.com/nomes/10';",
+            "",
+            "class ${1:Api} extends GetConnect {",
+            "",
+            "",
+            "",
+            "// Get request",
+            "Future<Response> getUser(int id) => get('http://youapi/users/$id');",
+            "// Post request",
+            "Future<Response> postUser(Map data) => post('http://youapi/users', body: data);",
+            "// Post request with File",
+            "Future<Response<CasesModel>> postCases(List<int> image) {",
+            "\tfinal form = FormData({",
+            "\t\t'file': MultipartFile(image, filename: 'avatar.png'),",
+            "\t\t'otherFile': MultipartFile(image, filename: 'cover.png'),",
+            "\t});",
+            "\treturn post('http://youapi/users/upload', form);",
+            "}",
+            "GetSocket userMessages() {",
+            "\treturn socket('https://yourapi/users/socket');",
+            "}",
+            "",
+            "}"
+        ],
+        "description": "Generate Provider file with GetConnect"
+    },
+    "GetProviderDio Snippet": {
+        "prefix": "getproviderdio",
+        "body": [
+            "import 'dart:convert';",
+            "import 'package:dio/dio.dart';",
+            "import 'package:meta/meta.dart';",
+            "",
+            "const baseUrl = 'http://gerador-nomes.herokuapp.com/nomes/10';",
+            "",
+            "class ${1:My}ApiClient {",
+            "",
+            "final Dio httpClient;",
+            "$1ApiClient({@required this.httpClient});",
+            "",
+            "",
+            "getAll() async {",
+            "\ttry {",
+            "\t\tvar response = await httpClient.get(baseUrl);",
+            "\t\tif(response.statusCode == 200){",
+            "\t\t\tMap<String, dynamic> jsonResponse = json.decode(response.data);",
+            "\t\t\t\tList<${2:MyModel}> list$2 = jsonResponse['data'].map<$2>((map) { ",
+            "\t\t\t\t\treturn $2.fromJson(map);",
+            "\t\t\t\t}).toList();",
+            "\t\t\treturn list$2;",
+            "\t\t}else print ('erro -get');",
+            "\t} catch(_){ }",
+            "}",
+            "",
+            "}"
+        ],
+        "description": "Generate Provider dio file"
+    },
+    "GetRepository Snippet": {
+        "prefix": "getrepository",
+        "body": [
+            "",
+            "class ${1:My}Repository {",
+            "",
+            "final ${2:My}Api api;",
+            "",
+            "$1Repository(this.api);",
+            "",
+            "getAll(){",
+            "\treturn api.getAll();",
+            "}",
+            "getId(id){",
+            "\treturn api.getId(id);",
+            "}",
+            "delete(id){",
+            "\treturn api.delete(id);",
+            "}",
+            "edit(obj){",
+            "\treturn api.edit( obj );",
+            "}",
+            "add(obj){",
+            "\t\treturn api.add( obj );",
+            "}",
+            "",
+            "}"
+        ],
+        "description": "Generate Repository file."
+    },
+    "GetMain Snippet": {
+        "prefix": "getmain",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "import 'package:get/get.dart';",
+            "",
+            "void main() {",
+            "\trunApp(",
+            "\t\tGetMaterialApp(",
+            "\t\t\t\tdebugShowCheckedModeBanner: false,",
+            "\t\t\t\tinitialRoute: Routes.SPLASH,",
+            "\t\t\t\ttheme: appThemeData,",
+            "\t\t\t\tdefaultTransition: Transition.fade,",
+            "\t\t\t\tinitialBinding: SplashBinding(),",
+            "\t\t\t\tgetPages: AppPages.pages,",
+            "\t\t\t\thome: SplashPage(),",
+            "\t\t)",
+            "\t);",
+            "}"
+        ],
+        "description": "Replace Main file."
+    },
+  
+  
+    "GetFinal Snippet": {
+        "prefix": "getfinal",
+        "body": [
+            "",
+            "final ${1:value} = ${2:''}.obs;",
+            ""
+        ],
+        "description": "Generate simple final obs, get and setter. "
+    },
+   
+    "GetListDismissible Snippet": {
+        "prefix": "getlistdismissible",
+        "body": [
+            "",
+            "GetX<${1:My}Controller>(",
+            "",
+            "\t//autoRemove: false,",
+            "\t//assignId: false,",
+            "\tinit: $1Controller(),",
+            "\tinitState: (state){ Get.find<$1Controller>().obj = 'fast code get snittpets' ;},",
+            "\tbuilder: (_) {",
+            "\t\treturn",
+            "\t\t_.obj.isEmpty ?",
+            "\t\t\t Center(child: CircularProgressIndicator());",
+            "\t\t:",
+            "\t\tListView.builder(",
+            "\t\titemCount: 5,",
+            "\t\titemBuilder: (context, index){",
+            "\t\t\treturn Dismissible(",
+            "\t\t\t\tonDismissed: (direction){ direction == DismissDirection.endToStart ? _.${2:remove}() : _.${3:edit}() },",
+            "\t\t\t\tdirection: DismissDirection.horizontal,",
+            "\t\t\t\tbackground: Container(",
+            "\t\t\t\t\tcolor: Colors.green,",
+            "\t\t\t\t\tchild: Align(",
+            "\t\t\t\t\t\talignment: Alignment(-0.9, 0),",
+            "\t\t\t\t\t\tchild: Icon(Icons.edit, color: Colors.white),",
+            "\t\t\t\t\t),",
+            "\t\t\t\t),",
+            "\t\t\t\tsecondaryBackground: Container(",
+            "\t\t\t\t\tcolor: Colors.red,",
+            "\t\t\t\t\tchild: Align(",
+            "\t\t\t\t\t\talignment: Alignment(0.9, 0),",
+            "\t\t\t\t\t\tchild: Icon(Icons.delete, color: Colors.white),",
+            "\t\t\t\t\t),",
+            "\t\t\t\t),",
+            "\t\t\t\tkey: UniqueKey(),",
+            "\t\t\t\tchild: ListTile(",
+            "\t\t\t\t\tonTap:(){},",
+            "\t\t\t\t\ttitle: Text(_.obj),",
+            "\t\t\t\t\tsubtitle: Text(index.toString()),",
+            "\t\t\t\t),",
+            "\t\t\t);",
+            "\t\t})",
+            "\t}",
+            ")"
+        ],
+        "description": "Generates a ListView with GetX and Dismissible widget, fully functional."
+    },
+    "GetMyWidget Snippet": {
+        "prefix": "getmywidget",
+        "body": [
+            "${1:MyCustomWidget}($2),"
+        ],
+        "description": "Instance of your custom component. "
+    },
+   
+   
+    "GetFAB Snippet": {
+        "prefix": "getfab",
+        "body": [
+            "",
+            "FloatingActionButton(",
+            "\tonPressed: () {},",
+            "\tchild: Icon(",
+            "\t\tIcons.add,",
+            "\t\tcolor: Colors.white,",
+            "\t),",
+            "\tbackgroundColor: Colors.blue,",
+            "),"
+        ],
+        "description": "Generates a Standard FloatingActionButton with its attributes. "
+    },
+    "GetFABWidget Snippet": {
+        "prefix": "getfabwidget",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "class CustomFAB extends StatelessWidget {",
+            "\tfinal Function function;",
+            "\tfinal Color bgColor;",
+            "\tfinal Color iconColor;",
+            "\tfinal Color splashColor;",
+            "\tfinal double fontSize;",
+            "\tfinal Icon icon;",
+            "",
+            "\tCustomFAB({",
+            "\t\t@required this.function,",
+            "\t\t@required this.icon,",
+            "\t\tthis.iconColor = Colors.white,",
+            "\t\tthis.splashColor = Colors.blueGrey,",
+            "\t\tthis.fontSize = 16,",
+            "\t\tthis.bgColor = Colors.blue,",
+            "\t});",
+            "",
+            "\t@override",
+            "\tWidget build(BuildContext context) {",
+            "\t\treturn FloatingActionButton(",
+            "\t\t\tsplashColor: this.splashColor,",
+            "\t\t\tonPressed: ()=> this.function,",
+            "\t\t\tbackgroundColor: this.bgColor,",
+            "\t\t\tchild: this.icon",
+            "\t\t);",
+            "\t}",
+            "}"
+        ],
+        "description": "Generate a stateless class with a FloatingActionButton that can be reused by more than one widget."
+    },
+    "GetForm Snippet": {
+        "prefix": "getformwidget",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "import 'package:get/get.dart';",
+          
+            "",
+            "class ${1:Custom}Form extends GetView<${2:Controller}> {",
+            "\tfinal GlobalKey<FormState> _formKey = GlobalKey<FormState>();",
+            "\t@override",
+            "\tWidget build(BuildContext context) {",
+            "\t\treturn Form(",
+            "\t\t\t\t\tkey: key,",
+            "\t\t\t\t\tchild: Column(",
+            "\t\t\t\t\t\tchildren: [",
+            "\t\t\t\t\t\t\tTextFormField(",
+            "\t\t\t\t\t\t\t\tkeyboardType: TextInputType.emailAddress,",
+            "\t\t\t\t\t\t\t\tonSaved: (v) => this.controller.onSavedEmail(v),",
+            "\t\t\t\t\t\t\t\tonChanged: (v) => this.controller.onChangedEmail(v),",
+            "\t\t\t\t\t\t\t\tvalidator: (v) => this.controller.onValidateEmail(v)",
+            "\t\t\t\t\t\t\t\tdecoration: InputDecoration(labelText: 'Email'),",
+            "\t\t\t\t\t\t\t\tenableSuggestions: true,",
+            "\t\t\t\t\t\t\t\tmaxLength: 32,",
+            "\t\t\t\t\t\t\t\tstyle: TextStyle(fontSize: 20),",
+            "\t\t\t\t\t\t\t),",
+            "\t\t\t\t\t\t\tTextFormField(",
+            "\t\t\t\t\t\t\t\tkeyboardType: TextInputType.text,",
+            "\t\t\t\t\t\t\t\tonSaved: (v) => this.controller.onSavedPassword(v),",
+            "\t\t\t\t\t\t\t\tonChanged: (v) => this.controller.onChangedPassword(v),",
+            "\t\t\t\t\t\t\t\tvalidator: (v) => this.controller.onValidatePassword(v)",
+            "\t\t\t\t\t\t\t\tdecoration: InputDecoration(labelText: 'Senha'),",
+            "\t\t\t\t\t\t\t\tenableSuggestions: true,",
+            "\t\t\t\t\t\t\t\tobscureText: true,",
+            "\t\t\t\t\t\t\t\tmaxLength: 20,",
+            "\t\t\t\t\t\t\t\tstyle: TextStyle(fontSize: 20),",
+            "\t\t\t\t\t\t\t),",
+            "\t\t\t\t\t\t\tMaterialButton(",
+            "\t\t\t\t\t\t\t\tonPressed: (){",
+            "\t\t\t\t\t\t\t\t\tfinal FormState form = this._formKey.currentState!;",
+            "\t\t\t\t\t\t\t\t\tform.validate()",
+            "\t\t\t\t\t\t\t\t\t? form.save()",
+            "\t\t\t\t\t\t\t\t\t: print('erro ao logar');",
+            "\t\t\t\t\t\t\t\t\tprint(_.user.email);",
+            "\t\t\t\t\t\t\t\t\tprint(_.user.password);",
+            "\t\t\t\t\t\t\t\t\t_.login();",
+            "\t\t\t\t\t\t\t\t},",
+            "\t\t\t\t\t\t\t\tchild: Text('OK'),",
+            "\t\t\t\t\t\t\t)",
+            "\t\t\t\t\t\t],",
+            "\t\t);",
+            "\t}",
+            "}"
+        ],
+        "description": "Generate a Form Widget with getx components."
+    },
+    "Ex: Controller controller = Get.put(Controller());": {
+        "prefix": "getput",
+        "body": [
+            "${1:Controller} ${2:controller} = Get.put(${1:Controller}());"
+        ],
+        "description": "Ex: Controller controller = Get.put(Controller());"
+    },
+    "Ex: Controller controller = Get.find();": {
+        "prefix": "getfind",
+        "body": [
+            "${1:Controller} ${2:controller} = Get.find();"
+        ],
+        "description": "Ex: Controller controller = Get.find();"
+    },
+    "Get.snackbar": {
+        "prefix": "getsnackbar",
+        "body": [
+            "Get.snackbar('${1:Hi}', '${2:i am a modern snackbar}');"
+        ],
+        "description": "Get.snackbar"
+    },
+    "Get.dialog": {
+        "prefix": "getdialog",
+        "body": [
+            "Get.dialog(${1:YourDialogWidget}());"
+        ],
+        "description": "Get.dialog"
+    },
+    "Get.bottomSheet": {
+        "prefix": "getbottomsheet",
+        "body": [
+            "Get.bottomSheet(",
+            "  Container(",
+            "    child: Wrap(",
+            "      children: <Widget>[",
+            "        ListTile(",
+            "          leading: Icon(Icons.music_note),",
+            "          title: Text('Music'),",
+            "          onTap: () => {}",
+            "        ),",
+            "        ListTile(",
+            "          leading: Icon(Icons.videocam),",
+            "          title: Text('Video'),",
+            "          onTap: () => {},",
+            "        ),",
+            "      ],",
+            "    ),",
+            "  ),",
+            "  backgroundColor: Colors.white",
+            ");"
+        ],
+        "description": "Get.bottomSheet"
+    },
+    "Get onInit()": {
+        "prefix": "getonInit",
+        "body": [
+            "@override",
+            "void onInit() {",
+            "  ${1:fetchApi}();",
+            "  super.onInit();",
+            "}"
+        ],
+        "description": "Get onInit()"
+    },
+    "Get onReady()": {
+        "prefix": "getonReady",
+        "body": [
+            "@override",
+            "void onReady() {",
+            "  ${1:fetchApi}();",
+            "  super.onReady();",
+            "}"
+        ],
+        "description": "Get onReady()"
+    },
+    "Get onClose()": {
+        "prefix": "getonClose",
+        "body": [
+            "  @override",
+            "  void onClose() {",
+            "    ${1:user}.close();",
+            "    super.onClose();",
+            "  }"
+        ],
+        "description": "Get onClose()"
+    },
+    "Get lazyPut": {
+        "prefix": "getlazyPut",
+        "body": [
+            "Get.lazyPut<${1:ControllerX}>(() => ${1:ControllerX}());"
+        ],
+        "description": "Get lazyPut"
+    },
+    "Get toNamed": {
+        "prefix": "getToNamed",
+        "body": [
+            "await Get.toNamed(\"/${1:NextScreen}\");"
+        ],
+        "description": "Get toNamed"
+    },
+    "Get offNamed": {
+        "prefix": "getoffNamed",
+        "body": [
+            "await Get.offNamed(\"/${1:NextScreen}\");"
+        ],
+        "description": "Get offNamed"
+    },
+    "Get offAllNamed": {
+        "prefix": "getoffAllNamed",
+        "body": [
+            "await Get.offAllNamed(\"/${1:NextScreen}\");"
+        ],
+        "description": "Get offAllNamed"
+    },
+    "Get.to": {
+        "prefix": "getTo",
+        "body": [
+            "await Get.to(${1:NextScreen}());"
+        ],
+        "description": "Get.to"
+    },
+    "Get.off": {
+        "prefix": "getOff",
+        "body": [
+            "await Get.off(${1:NextScreen}());"
+        ],
+        "description": "Get.off"
+    },
+    "Get.offAll": {
+        "prefix": "getOffAll",
+        "body": [
+            "await Get.offAll(${1:NextScreen}());"
+        ],
+        "description": "Get.offAll"
+    },
+    "GetStorage": {
+        "prefix": "getStorage",
+        "body": [
+            "GetStorage ${1:box} = GetStorage();"
+        ],
+        "description": "GetStorage"
+    },
+    "GetStorage Write": {
+        "prefix": "getStorageWrite",
+        "body": [
+            "box.write(\"${1:key}\", \"${2:value}\");"
+        ],
+        "description": "GetStorage Write"
+    },
+    "GetStorage Read": {
+        "prefix": "getStorageRead",
+        "body": [
+            "box.read(\"${1:key}\");"
+        ],
+        "description": "GetStorage Read"
+    },
+    "Get defaultDialog": {
+        "prefix": "getdefaultdialog",
+        "body": [
+            "Get.defaultDialog(",
+            "  onConfirm: () => print(\"Ok\"),",
+            "  middleText: \"${1:Dialog made in 3 lines of code}\"",
+            ");"
+        ],
+        "description": "Get defaultDialog"
+    }
+}
