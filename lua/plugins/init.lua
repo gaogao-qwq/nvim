@@ -4,5 +4,4 @@ return {
 	{ "wakatime/vim-wakatime", event = "VeryLazy" },
 	{ "andweeb/presence.nvim", event = "VeryLazy" },
 	{ "norcalli/nvim-colorizer.lua", event = "VeryLazy" },
-	{ "lukas-reineke/headlines.nvim", event = "VeryLazy" },
 }
