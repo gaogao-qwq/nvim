@@ -41,7 +41,7 @@ return {
 				enable = true,
 				additional_vim_regex_highlighting = { "org" },
 			},
-			indent = { enable = true },
+			indent = { enable = true, disabled = { "dart" } },
 			rainbow = {
 				enable = true,
 				extended_mode = true,
