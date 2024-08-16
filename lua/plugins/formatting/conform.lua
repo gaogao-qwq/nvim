@@ -21,6 +21,9 @@ return {
 			formatters = {
 				injected = { options = { ignore_errors = true } },
 			},
+			dartls = {
+				preend_args = { "--enable-experiment=tall-style" },
+			},
 		}
 		return opts
 	end,
