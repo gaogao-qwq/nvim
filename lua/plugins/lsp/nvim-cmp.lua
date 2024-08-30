@@ -59,6 +59,9 @@ return {
 			formatting = {
 				format = lspkind.cmp_format({
 					mode = "symbol_text",
+					maxwidth = 100,
+					ellipsis_char = "...",
+					show_labelDetails = true,
 					menu = {
 						buffer = "[Buffer]",
 						nvim_lsp = "[LSP]",
