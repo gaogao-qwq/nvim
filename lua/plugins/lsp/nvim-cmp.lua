@@ -79,6 +79,7 @@ return {
 				{ name = "calc" },
 				{ name = "orgmode" },
 				{ name = "emoji" },
+				{ name = "nvim_lsp" },
 				{ name = "path" },
 				{ name = "vim-dadbod-completion" },
 				{ name = "buffer" },
