@@ -5,10 +5,6 @@ bo.shiftwidth = 4
 bo.expandtab = true
 bo.softtabstop = 4
 
-if bo[vim.api.nvim_get_current_buf()].filetype ~= "java" then
-    return
-end
-
 local home = string.sub(vim.fn.system("echo $HOME"), 0, -2)
 local lombok_jar = home .. "/.local/share/eclipse/lombok.jar"
 local jdtls_jar = vim.fn.glob(home .. "/.local/share/eclipse/jdtls/plugins/org.eclipse.equinox.launcher_*.jar")
