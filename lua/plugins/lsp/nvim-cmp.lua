@@ -1,11 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
 	event = "VeryLazy",
-	dependencies = {
-		"hrsh7th/cmp-emoji",
-		"hrsh7th/cmp-calc",
-		"onsails/lspkind.nvim",
-	},
 	opts = function()
 		local has_words_before = function()
 			unpack = unpack or table.unpack
@@ -16,7 +11,6 @@ return {
 		local luasnip = require("luasnip")
 		local cmp = require("cmp")
 		local defaults = require("cmp.config.default")()
-		local lspkind = require("lspkind")
 
 		return {
 			mapping = cmp.mapping.preset.insert({
@@ -57,20 +51,25 @@ return {
 				documentation = cmp.config.window.bordered(),
 			},
 			formatting = {
-				format = lspkind.cmp_format({
-					mode = "symbol_text",
-					maxwidth = 100,
-					ellipsis_char = "...",
-					show_labelDetails = true,
-					menu = {
-						buffer = "[Buffer]",
-						nvim_lsp = "[LSP]",
-						luasnip = "[LuaSnip]",
-						nvim_lua = "[Lua]",
-						latex_symbols = "[Latex]",
-						emoji = "[Emoji]",
-					},
-				}),
+				format = function(entry, item)
+					local icons = LazyVim.config.icons.kinds
+					if icons[item.kind] then
+						item.kind = icons[item.kind] .. item.kind
+					end
+
+					local widths = {
+						abbr = vim.g.cmp_widths and vim.g.cmp_widths.abbr or 40,
+						menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 30,
+					}
+
+					for key, width in pairs(widths) do
+						if item[key] and vim.fn.strdisplaywidth(item[key]) > width then
+							item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. "…"
+						end
+					end
+
+					return item
+				end,
 			},
 			snippet = {
 				expand = function(item)
@@ -79,9 +78,7 @@ return {
 			},
 			sources = {
 				{ name = "luasnip" },
-				{ name = "calc" },
 				{ name = "orgmode" },
-				{ name = "emoji" },
 				{ name = "nvim_lsp" },
 				{ name = "path" },
 				{ name = "vim-dadbod-completion" },
