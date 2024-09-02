@@ -50,13 +50,15 @@ opt.signcolumn = "yes"
 ---------------
 --- Neovide ---
 ---------------
-vim.o.guifont = "FiraCode Nerd Font Mono:h12"
-vim.g.neovide_transparency = 0.9
-vim.g.neovide_scroll_animation_length = 0.3
-vim.g.neovide_underline_stroke_scale = 1.0
-vim.g.neovide_theme = "auto"
-vim.g.neovide_refresh_rate = 165
-vim.g.neovide_refresh_rate_idle = 5
-vim.g.neovide_confirm_quit = true
-vim.g.neovide_cursor_trail_size = 0.8
-vim.g.neovide_cursor_vfx_mode = "sonicboom"
+if vim.g.neovide then
+	vim.o.guifont = "Maple Mono NF CN:h12"
+	vim.g.neovide_transparency = 1.0
+	vim.g.neovide_scroll_animation_length = 0.3
+	vim.g.neovide_underline_stroke_scale = 1.0
+	vim.g.neovide_theme = "auto"
+	vim.g.neovide_refresh_rate = 165
+	vim.g.neovide_refresh_rate_idle = 5
+	vim.g.neovide_confirm_quit = true
+	vim.g.neovide_cursor_trail_size = 0.8
+	vim.g.neovide_cursor_vfx_mode = "sonicboom"
+end

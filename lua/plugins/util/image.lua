@@ -2,6 +2,7 @@ return {
 	"3rd/image.nvim",
 	event = "VeryLazy",
 	config = function()
+		if vim.g.neovide then return end
 		require("image").setup({
 			backend = "kitty",
 			integrations = {
