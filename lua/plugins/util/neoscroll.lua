@@ -4,8 +4,8 @@ return {
 	-- stylua: ignore
 	config = function()
 		if vim.g.neovide then
-			vim.keymap.set("n", "K", "<C-u>", { silent = true })
-			vim.keymap.set("n", "J", "<C-d>", { silent = true })
+			vim.keymap.set({"n", "v", "x"}, "K", "<C-u>", { silent = true })
+			vim.keymap.set({"n", "v", "x"}, "J", "<C-d>", { silent = true })
 			return
 		end
 		local neoscroll = require('neoscroll')
