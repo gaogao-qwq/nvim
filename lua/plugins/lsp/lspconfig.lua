@@ -103,6 +103,9 @@ return {
 			jdtls = function()
 				return true
 			end,
+			rust_analyzer = function()
+				return true
+			end,
 			clangd = function(_, opts)
 				local clangd_ext_opts = LazyVim.opts("clangd_extensions.nvim")
 				require("clangd_extensions").setup(
