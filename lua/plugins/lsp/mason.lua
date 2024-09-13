@@ -24,7 +24,6 @@ return {
 			"goimports",
 			"marksman",
 			"markdownlint",
-			"ltex-ls",
 			"neocmakelsp",
 			"kotlin-language-server",
 			"intelephense",
