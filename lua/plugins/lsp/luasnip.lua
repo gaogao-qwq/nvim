@@ -9,19 +9,19 @@ return {
 		require("luasnip.loaders.from_lua").load({
 			paths = {
 				vim.fn.getcwd() .. "/snippets",
-				tostring(vim.fn.stdpath("config")),
+				tostring(vim.fn.stdpath("config")) .. "/snippets",
 			},
 		})
 		require("luasnip.loaders.from_vscode").load({
 			paths = {
 				vim.fn.getcwd() .. "/snippets",
-				tostring(vim.fn.stdpath("config")),
+				tostring(vim.fn.stdpath("config")) .. "/snippets",
 			},
 		})
 		require("luasnip.loaders.from_snipmate").load({
 			paths = {
 				vim.fn.getcwd() .. "/snippets",
-				tostring(vim.fn.stdpath("config")),
+				tostring(vim.fn.stdpath("config")) .. "/snippets",
 			},
 		})
 	end,
