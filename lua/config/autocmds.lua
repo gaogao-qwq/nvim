@@ -16,17 +16,14 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*" },
 	callback = function()
-		local paths = vim.split(vim.fn.glob(vim.fn.getcwd() .. "/ftplugin/*.lua"), "\n", { trimempty = true })
-		local filetypes = {}
-		for _, path in pairs(paths) do
-			path = tostring(path:match("[^/]*.lua$"))
-			table.insert(filetypes, path:sub(0, #path - 4))
-		end
-
 		local ftplugins = {
-			filetypes = filetypes,
-			paths = paths,
+			filetypes = {},
+			paths = vim.split(vim.fn.glob(vim.fn.getcwd() .. "/ftplugin/*.lua"), "\n", { trimempty = true }),
 		}
+
+		for _, path in pairs(ftplugins.paths) do
+			table.insert(ftplugins.filetypes, tostring(vim.fs.basename(path)):sub(0, -5))
+		end
 
 		for i, _ in ipairs(ftplugins.paths) do
 			-- print("filetype: " .. ftplugins.filetypes[i] .. " path: " .. ftplugins.paths[i] .. "\n")
