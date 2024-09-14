@@ -98,5 +98,6 @@
   "vimtex": { "branch": "master", "commit": "0df7aa1eb6e9f007cd44653a7284ace7113b24ca" },
   "which-key.nvim": { "branch": "main", "commit": "bfec3d6bc0a9b0b2cb11644642f78c2c3915eef0" },
   "yanky.nvim": { "branch": "main", "commit": "73215b77d22ebb179cef98e7e1235825431d10e4" },
+  "yazi.nvim": { "branch": "main", "commit": "ac97d7c5e47490ecd179647bc0d0ea04c9ce3329" },
   "zen-mode.nvim": { "branch": "main", "commit": "29b292bdc58b76a6c8f294c961a8bf92c5a6ebd6" }
 }

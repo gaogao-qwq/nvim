@@ -8,6 +8,7 @@ return {
 	},
 	opts = {
 		filesystem = {
+			hijack_netrw_behavior = "disabled",
 			follow_current_file = { enabled = false },
 		},
 	},
