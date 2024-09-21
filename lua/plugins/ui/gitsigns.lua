@@ -12,6 +12,5 @@ return {
 				untracked = { text = "┆" },
 			},
 		})
-		require("scrollbar.handlers.gitsigns").setup()
 	end,
 }
