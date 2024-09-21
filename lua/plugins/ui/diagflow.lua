@@ -2,7 +2,10 @@ return {
 	"dgagn/diagflow.nvim",
 	event = "LspAttach",
 	opts = {
+		enable = function()
+			return vim.bo.filetype ~= "lazy"
+		end,
 		scope = "line",
-		placement = "inline"
+		update_event = { "DiagnosticChanged" },
 	},
 }
