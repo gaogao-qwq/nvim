@@ -76,6 +76,7 @@ return {
 						"compile_flags.txt"
 					)(fname) or require("lspconfig.util").find_git_ancestor(fname)
 				end,
+				filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 				capabilities = {
 					offsetEncoding = { "utf-16" },
 				},
