@@ -95,10 +95,6 @@ return {
 					clangdFileStatus = true,
 				},
 			},
-			als = {
-				root_dir = require("lspconfig.util").root_pattern("Makefile", ".git", "*.gpr", "*.adc"),
-				cmd = { "ada_language_server" },
-			},
 		},
 		setup = {
 			jdtls = function()
