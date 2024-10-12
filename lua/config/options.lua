@@ -1,5 +1,6 @@
 local opt = vim.opt
 
+vim.g.c_syntax_for_h = 1
 vim.g.autoformat = false
 vim.b.autoformat = false
 
