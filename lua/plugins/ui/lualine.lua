@@ -69,7 +69,7 @@ return {
 				lualine_a = {
 					{
 						"mode",
-						fmt = function(str)
+						fmt = function(_)
 							return mode_map[vim.api.nvim_get_mode().mode] or "__"
 						end,
 					},
