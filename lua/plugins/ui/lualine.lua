@@ -37,6 +37,21 @@ local mode_map = {
 	["t"] = "终端模式",
 }
 
+local client_lsp = function()
+	local bufnr = vim.api.nvim_get_current_buf()
+	local clients = vim.lsp.get_clients({bufnr = bufnr})
+
+	if next(clients) == nil then
+		return ""
+	end
+
+	local c = {}
+	for _, client in ipairs(clients) do
+		table.insert(c, client.name)
+	end
+	return " LSP: " .. table.concat(c, "|")
+end
+
 return {
 	"nvim-lualine/lualine.nvim",
 	event = "VeryLazy",
@@ -134,7 +149,8 @@ return {
 						end,
 					},
 				},
-				lualine_y = {
+				lualine_y = { client_lsp },
+				lualine_z = {
 					{ "progress", separator = " ", padding = { left = 1, right = 0 } },
 					{ "location", padding = { left = 0, right = 1 } },
 				},
