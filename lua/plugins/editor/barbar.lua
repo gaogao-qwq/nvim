@@ -1,5 +1,6 @@
 return {
 	"romgrk/barbar.nvim",
+	lazy = false,
 	keys = {
 		{ "<leader>bd", "<cmd>BufferClose<cr>", desc = "Close buffer" },
 		{ "<leader>b[d", "<cmd>BufferCloseBuffersLeft<cr>", desc = "Close all buffers at right" },
