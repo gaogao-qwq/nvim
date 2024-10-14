@@ -16,7 +16,6 @@ require("lazy").setup({
 		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 		{ import = "plugins" },
 		{ import = "plugins.colorscheme" },
-		{ import = "plugins.dap" },
 		{ import = "plugins.editor" },
 		{ import = "plugins.formatting" },
 		{ import = "plugins.lsp" },
