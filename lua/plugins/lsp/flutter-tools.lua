@@ -10,7 +10,6 @@ return {
 		},
 		fvm = true,
 		lsp = {
-			offset_encoding = "utf-8",
 			color = {
 				enabled = true,
 				background = false,
