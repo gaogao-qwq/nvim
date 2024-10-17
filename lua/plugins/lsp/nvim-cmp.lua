@@ -1,5 +1,6 @@
 return {
-	"hrsh7th/nvim-cmp",
+	"iguanacucumber/magazine.nvim",
+	name = "nvim-cmp",
 	event = "VeryLazy",
 	opts = function()
 		local has_words_before = function()
