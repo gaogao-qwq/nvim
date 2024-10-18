@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		end
 
 		-- workspace dotfile
-		local dotfile_path = vim.fn.getcwd() .. ".nvim.lua"
+		local dotfile_path = vim.fs.joinpath(vim.fn.getcwd(), ".nvim.lua")
 		local dotfile = io.open(dotfile_path, "r")
 		if dotfile ~= nil then
 			dotfile:close()
