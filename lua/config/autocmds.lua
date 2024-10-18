@@ -1,3 +1,4 @@
+--- Auto save
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 	pattern = { "*" },
 	callback = function()
@@ -12,10 +13,11 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 	nested = true,
 })
 
--- load workspace specific ftplugins
+--- Load workspace specific files
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*" },
 	callback = function()
+		-- ftplugins
 		local ftplugins = {
 			filetypes = {},
 			paths = vim.split(vim.fn.glob(vim.fn.getcwd() .. "/ftplugin/*.lua"), "\n", { trimempty = true }),
@@ -30,6 +32,14 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 			if ftplugins.filetypes[i] == vim.bo.ft then
 				dofile(ftplugins.paths[i])
 			end
+		end
+
+		-- workspace dotfile
+		local dotfile_path = vim.fn.getcwd() .. ".nvim.lua"
+		local dotfile = io.open(dotfile_path, "r")
+		if dotfile ~= nil then
+			dotfile:close()
+			dofile(dotfile_path)
 		end
 	end,
 })
