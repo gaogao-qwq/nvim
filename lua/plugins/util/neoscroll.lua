@@ -19,5 +19,6 @@ return {
 		for key, func in pairs(keymap) do
 			vim.keymap.set(modes, key, func)
 		end
+		neoscroll.setup()
 	end,
 }
