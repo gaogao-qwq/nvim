@@ -19,9 +19,5 @@ return {
 		for key, func in pairs(keymap) do
 			vim.keymap.set(modes, key, func)
 		end
-		local opts = {
-			hide_cursor = false,
-		}
-		neoscroll.setup(opts)
 	end,
 }
