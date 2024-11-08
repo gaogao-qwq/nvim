@@ -16,6 +16,7 @@ return {
 				go = { "goimports", "gofmt" },
 				cpp = { "clang_format" },
 				c = { "clang_format" },
+				objc = { "clang_format" },
 				markdown = { "markdownlint" },
 			},
 			formatters = {
