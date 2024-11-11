@@ -2,6 +2,7 @@ return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
 	opts = {
+		notify = { enabled = false },
 		lsp = {
 			progress = {
 				enabled = false,
@@ -32,5 +33,5 @@ return {
 			inc_rename = true,
 			lsp_doc_border = true,
 		},
-	}
+	},
 }
