@@ -4,4 +4,5 @@ return {
 	{ "echasnovski/mini.indentscope", enabled = false },
 	{ "akinsho/bufferline.nvim", enabled = false },
 	{ "echasnovski/mini.icons", enabled = false },
+	{ "folke/trouble.nvim", enabled = false },
 }
