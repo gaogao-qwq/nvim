@@ -3,7 +3,9 @@ return {
 	priority = 1000,
 	lazy = false,
 	---@type snacks.Config
-	opts = {},
+	opts = {
+		dashboard = { enabled = false },
+	},
 	keys = {
 		-- stylua: ignore
 		{ "<leader>uN", function() Snacks.notifier.show_history() end, desc = "Show notification history" },
