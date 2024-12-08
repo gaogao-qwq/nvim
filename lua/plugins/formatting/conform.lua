@@ -18,6 +18,7 @@ return {
 				c = { "clang_format" },
 				objc = { "clang_format" },
 				markdown = { "markdownlint" },
+				haskell = { "stylish-haskell" }
 			},
 			formatters = {
 				injected = { options = { ignore_errors = true } },
