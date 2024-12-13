@@ -18,13 +18,15 @@ return {
 				c = { "clang_format" },
 				objc = { "clang_format" },
 				markdown = { "markdownlint" },
-				haskell = { "stylish-haskell" }
+				haskell = { "stylish-haskell" },
+				dart = { "dart_format" },
 			},
 			formatters = {
 				injected = { options = { ignore_errors = true } },
-			},
-			dartls = {
-				preend_args = { "--enable-experiment=tall-style" },
+				dart_format = {
+					command = "dart",
+					args = { "format", "--enable-experiment=tall-style" },
+				},
 			},
 		}
 		return opts
