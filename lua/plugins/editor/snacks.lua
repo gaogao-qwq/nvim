@@ -9,5 +9,6 @@ return {
 	keys = {
 		-- stylua: ignore
 		{ "<leader>uN", function() Snacks.notifier.show_history() end, desc = "Show notification history" },
+		{ "<leader>n", false },
 	},
 }
