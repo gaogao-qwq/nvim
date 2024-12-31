@@ -95,6 +95,15 @@ return {
 					clangdFileStatus = true,
 				},
 			},
+			sourcekit = {
+				capabilities = {
+					workspace = {
+						didChangeWatchedFiles = {
+							dynamicRegistration = true,
+						},
+					},
+				},
+			},
 		},
 		setup = {
 			jdtls = function()
