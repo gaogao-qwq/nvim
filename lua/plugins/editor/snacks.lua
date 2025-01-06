@@ -6,7 +6,19 @@ return {
 	opts = {
 		dashboard = { enabled = false },
 		indent = { enabled = false },
-		scroll = { enabled = false },
+		scroll = {
+			animate = {
+				duration = { step = 15, total = 250 },
+				easing = "linear",
+				fps = 120,
+			},
+			spamming = 10,
+			filter = function(buf)
+				return vim.g.snacks_scroll ~= false
+					and vim.b[buf].snacks_scroll ~= false
+					and vim.bo[buf].buftype ~= "terminal"
+			end,
+		},
 	},
 	keys = {
 		-- stylua: ignore
