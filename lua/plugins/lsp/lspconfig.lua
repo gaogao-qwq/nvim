@@ -103,6 +103,7 @@ return {
 					},
 				},
 				sourcekit = {
+					filetypes = { "swift" },
 					capabilities = {
 						workspace = {
 							didChangeWatchedFiles = {
@@ -119,6 +120,9 @@ return {
 							hybridMode = false,
 						},
 					},
+				},
+				hls = {
+					enabled = false,
 				},
 			},
 			setup = {
