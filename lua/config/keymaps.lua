@@ -22,8 +22,8 @@ keymap.set("i", "<C-e>", "<End>")
 --- 正常模式 ---
 ----------------
 
-keymap.set("n", "J", "<C-d>", { noremap = true })
-keymap.set("n", "K", "<C-u>", { noremap = true })
+keymap.set({ "n", "v" }, "J", "<C-d>", { noremap = true })
+keymap.set({ "n", "v" }, "K", "<C-u>", { noremap = true })
 
 keymap.set("n", "<M-H>", [[<cmd>vertical resize -2<cr>]], { silent = true, nowait = true })
 keymap.set("n", "<M-J>", [[<cmd>horizontal resize +2<cr>]], { silent = true, nowait = true })
