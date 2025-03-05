@@ -12,7 +12,6 @@ return {
 		{ "<leader>ft", "<cmd>TodoTelescope<CR>", desc = "Telescope search todos" },
 	},
 	opts = function()
-		require("telescope").load_extension("file_browser")
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("flutter")
 		require("telescope").load_extension("noice")

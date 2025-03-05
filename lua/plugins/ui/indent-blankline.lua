@@ -1,6 +1,7 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
 	main = "ibl",
+	event = "VeryLazy",
 	opts = function()
 		local whitespace_highlight = {
 			"CursorColumn",
