@@ -19,7 +19,7 @@
   "diagflow.nvim": { "branch": "main", "commit": "9a05fda174038d349845efc70422bda4ce86b185" },
   "dressing.nvim": { "branch": "master", "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639" },
   "flash.nvim": { "branch": "main", "commit": "3c942666f115e2811e959eabbdd361a025db8b63" },
-  "flutter-tools.nvim": { "branch": "main", "commit": "8199f8b3b2234a534e518a7a4054364dcf6369c8" },
+  "flutter-tools.nvim": { "branch": "main", "commit": "8edcdabfe982c77482ebde2ba3f46f2adc677e64" },
   "friendly-snippets": { "branch": "main", "commit": "efff286dd74c22f731cdec26a70b46e5b203c619" },
   "gitsigns.nvim": { "branch": "main", "commit": "4c40357994f386e72be92a46f41fc1664c84c87d" },
   "grug-far.nvim": { "branch": "main", "commit": "3d39dc8b31d4ab7aad1b9ffdba136eafc6c7c360" },

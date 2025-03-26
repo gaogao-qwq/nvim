@@ -18,6 +18,9 @@ return {
 				virtual_text = true,
 				virtual_text_str = "■",
 			},
+			capabilities = {
+				semanticTokensProvider = nil,
+			},
 		},
 	},
 }
