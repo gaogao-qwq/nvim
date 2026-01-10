@@ -3,13 +3,7 @@ return {
 	event = "VeryLazy",
 	keys = {
 		-- stylua: ignore
-		{"<leader>h", function() vim.lsp.buf.hover() end, desc = "Open lsp hover"},
-		{
-			"<leader>xf",
-			-- stylua: ignore
-			function() vim.diagnostic.open_float({ border = "rounded" }) end,
-			desc = "Open float diagnostics panel",
-		},
+		{"<leader>xf", function() vim.diagnostic.open_float({ border = "rounded" }) end, desc = "Open float diagnostics panel"},
 	},
 	opts = function()
 		return {
@@ -45,6 +39,18 @@ return {
 				["*"] = {
 					keys = {
 						{ "K", false },
+						-- stylua: ignore
+						{"<leader>h", function() vim.lsp.buf.hover() end, desc = "Lsp hover"},
+						-- stylua: ignore
+						{"<leader>cr", function() vim.lsp.buf.rename() end, desc = "Lsp rename"},
+						-- stylua: ignore
+						{"<leader>ca", function() vim.lsp.buf.code_action() end, desc = "Lsp code action"},
+						-- stylua: ignore
+						{"<leader>gr", function() vim.lsp.buf.references() end, desc = "Lsp references"},
+						-- stylua: ignore
+						{"<leader>gd", function() vim.lsp.buf.definition() end, desc = "Lsp definition"},
+						-- stylua: ignore
+						{"<leader>gI", function() vim.lsp.buf.implementation() end, desc = "Lsp implementation"},
 					},
 					capabilities = {
 						workspace = {
