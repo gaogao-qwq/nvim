@@ -12,9 +12,6 @@ return {
 		},
 	},
 	opts = function()
-		local keys = require("lazyvim.plugins.lsp.keymaps").get()
-		keys[#keys + 1] = { "K", false }
-
 		return {
 			autoformat = false,
 			diagnostics = {
@@ -34,22 +31,30 @@ return {
 			inlay_hints = {
 				enabled = false,
 			},
+			folds = {
+				enabled = true,
+			},
 			codelens = {
 				enabled = false,
-			},
-			capabilities = {
-				workspace = {
-					fileOperations = {
-						didRename = true,
-						willRename = true,
-					},
-				},
 			},
 			format = {
 				formatting_options = nil,
 				timeout_ms = nil,
 			},
 			servers = {
+				["*"] = {
+					keys = {
+						{ "K", false },
+					},
+					capabilities = {
+						workspace = {
+							fileOperations = {
+								didRename = true,
+								willRename = true,
+							},
+						},
+					},
+				},
 				lua_ls = {
 					settings = {
 						Lua = {

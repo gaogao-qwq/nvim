@@ -1,11 +1,8 @@
 local opt = vim.opt
 
-vim.g.c_syntax_for_h = 1
+vim.g.c_syntax_for_h = true
 vim.g.autoformat = false
 vim.b.autoformat = false
-
--- 移动 screen 时确保光标上下空间不得低于10行
-opt.scrolloff = 10
 
 -- 行号
 opt.relativenumber = true
@@ -62,5 +59,5 @@ if vim.g.neovide then
 	vim.g.neovide_confirm_quit = true
 	vim.g.neovide_cursor_trail_size = 0.8
 	vim.g.neovide_cursor_vfx_mode = "sonicboom"
-	vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
+	vim.g.neovide_input_macos_option_key_is_meta = "only_left"
 end
