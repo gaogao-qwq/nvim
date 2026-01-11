@@ -45,12 +45,6 @@ return {
 						{"<leader>cr", function() vim.lsp.buf.rename() end, desc = "Lsp rename"},
 						-- stylua: ignore
 						{"<leader>ca", function() vim.lsp.buf.code_action() end, desc = "Lsp code action"},
-						-- stylua: ignore
-						{"<leader>gr", function() vim.lsp.buf.references() end, desc = "Lsp references"},
-						-- stylua: ignore
-						{"<leader>gd", function() vim.lsp.buf.definition() end, desc = "Lsp definition"},
-						-- stylua: ignore
-						{"<leader>gI", function() vim.lsp.buf.implementation() end, desc = "Lsp implementation"},
 					},
 					capabilities = {
 						workspace = {
