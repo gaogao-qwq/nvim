@@ -30,14 +30,11 @@ keymap.set("n", "<M-J>", [[<cmd>horizontal resize +2<cr>]], { silent = true, now
 keymap.set("n", "<M-K>", [[<cmd>horizontal resize -2<cr>]], { silent = true, nowait = true })
 keymap.set("n", "<M-L>", [[<cmd>vertical resize +2<cr>]], { silent = true, nowait = true })
 
+keymap.del("n", "gra")
+keymap.del("n", "gri")
+keymap.del("n", "grn")
+keymap.del("n", "grr")
+keymap.del("n", "grt")
+
 -- 取消高亮
 keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
-
--- telescope
--- local telescope = require('telescope.builtin')
--- keymap.set("n", "<leader>ff", telescope.find_files, {}) -- 主键 + ff 查找文件
--- keymap.set("n", "<leader>fo", telescope.oldfiles, {})   -- 主键 + fo 查找旧文件
--- keymap.set("n", "<leader>fg", telescope.live_grep, {})  -- 主键 + fg 查找单词
--- keymap.set("n", "<leader>fb", telescope.buffers, {})    -- 主键 + fb 查找标签
--- keymap.set("n", "<leader>fh", telescope.help_tags, {})  -- 主键 + fh 查找帮助
--- keymap.set("n", "<leader>ft", '<cmd>TodoTelescope<CR>') -- 主键 + ft 查找 TODO
