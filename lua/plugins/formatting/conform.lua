@@ -23,10 +23,6 @@ return {
 			},
 			formatters = {
 				injected = { options = { ignore_errors = true } },
-				dart_format = {
-					command = "dart",
-					args = { "format", "--enable-experiment=tall-style" },
-				},
 			},
 		}
 		return opts
