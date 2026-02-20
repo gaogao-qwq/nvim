@@ -16,7 +16,7 @@ return {
 			"json-lsp",
 			"pyright",
 			"debugpy",
-			"ruff-lsp",
+			"ruff",
 			"rust-analyzer",
 			"taplo",
 			"gopls",
