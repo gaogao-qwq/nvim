@@ -24,7 +24,7 @@ return {
 			"marksman",
 			"markdownlint",
 			"neocmakelsp",
-			"kotlin-language-server",
+			"kotlin-lsp",
 			"intelephense",
 		},
 	},

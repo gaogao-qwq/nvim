@@ -14,24 +14,26 @@ if vim.loop.os_uname().sysname == "Linux" then
 elseif vim.loop.os_uname().sysname == "Darwin" then
 	jdtls_conf = home .. "/.local/share/eclipse/jdtls/config_mac"
 end
-local root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1])
+local root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1])
 local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
+---@type vim.lsp.Config
 local config = {
-    root_dir = root_dir,
+	root_dir = root_dir,
 	settings = {
 		java = {
 			import = {
 				gradle = {
 					annotationProcessing = { enabled = true },
-					wrapper = { enabled = true }
+					wrapper = { enabled = true },
 				},
 			},
 		},
 	},
 	init_options = {
-		bundles = {}
+		bundles = {},
 	},
+	-- stylua: ignore
     cmd = {
 		'java',
 		'-Declipse.application=org.eclipse.jdt.ls.core.id1',
@@ -50,4 +52,4 @@ local config = {
 	},
 }
 
-require('jdtls').start_or_attach(config)
+require("jdtls").start_or_attach(config)
