@@ -30,6 +30,7 @@ keymap.set("n", "<M-J>", [[<cmd>horizontal resize +2<cr>]], { silent = true, now
 keymap.set("n", "<M-K>", [[<cmd>horizontal resize -2<cr>]], { silent = true, nowait = true })
 keymap.set("n", "<M-L>", [[<cmd>vertical resize +2<cr>]], { silent = true, nowait = true })
 
+keymap.del("n", "grx")
 keymap.del("n", "gra")
 keymap.del("n", "gri")
 keymap.del("n", "grn")

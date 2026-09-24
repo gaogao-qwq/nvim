@@ -18,7 +18,7 @@ return {
 		end
 
 		require("statuscol").setup({
-			relculright = false,
+			relculright = true,
 			segments = {
 				{ text = { "%s" }, click = "v:lua.ScSa" },
 				{ text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },

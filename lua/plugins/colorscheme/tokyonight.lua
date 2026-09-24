@@ -2,9 +2,6 @@ return {
 	"folke/tokyonight.nvim",
 	lazy = true,
 	priority = 1000,
-	init = function()
-		vim.cmd([[colorscheme tokyonight]])
-	end,
 	opts = {
 		transparent = not vim.g.neovide,
 		style = "night",
